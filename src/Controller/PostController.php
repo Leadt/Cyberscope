@@ -15,4 +15,12 @@ class PostController extends AbstractController
             'controller_name' => 'PostController',
         ]);
     }
+
+    #[Route('/formPost', name: "app_formPost")]
+    public function formPost(): Response
+    {
+        return $this->render('post/formPost.html.twig', [
+            'controller_name' => 'PostController',
+        ]);
+    }
 }

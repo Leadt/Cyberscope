@@ -365,6 +365,6 @@ class __TwigTemplate_5be331d03ae100f81f1613d1dfcc3465 extends Template
 \t\t<button type=\"submit\" href=\"{{path('app_homepage')}}\">Se connecter</button>
 \t</div>
 </form></div>{% endblock %}
-", "connexion/index.html.twig", "/Users/leadrouet/Desktop/ENSC/2A/S8/P2i/Cyberscope/Cybercom/templates/connexion/index.html.twig");
+", "connexion/index.html.twig", "/Users/leadrouet/Desktop/ENSC/2A/S8/P2i/Cyberscope/templates/connexion/index.html.twig");
     }
 }

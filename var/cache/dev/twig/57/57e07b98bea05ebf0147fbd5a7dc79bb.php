@@ -72,7 +72,7 @@ class __TwigTemplate_01a3cbda6305fe4827d1bd4ea5328f16 extends Template
         // line 33
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_homepage");
         echo "\">CyberCom</a>
-\t\t\t\t<button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarColor02\" aria-controls=\"navbarColor02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
+\t\t\t\t<button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarColor02\" aria-controls=\"navbarColor02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
 \t\t\t\t\t<span class=\"navbar-toggler-icon\"></span>
 \t\t\t\t</button>
 \t\t\t\t<div class=\"collapse navbar-collapse\" id=\"navbarColor02\">
@@ -84,11 +84,10 @@ class __TwigTemplate_01a3cbda6305fe4827d1bd4ea5328f16 extends Template
         echo "\">Mon compte
 \t\t\t\t\t\t\t\t<span class=\"visually-hidden\">(current)</span>
 \t\t\t\t\t\t\t</a>
-
 \t\t\t\t\t\t</li>
-\t\t\t\t\t\t<li>
+\t\t\t\t\t\t<li class=\"nav-item\">
 \t\t\t\t\t\t\t<a class=\"nav-link active\" href=\"";
-        // line 46
+        // line 45
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
         echo "\">Connexion
 \t\t\t\t\t\t\t\t<span class=\"visually-hidden\">(current)</span>
@@ -101,9 +100,9 @@ class __TwigTemplate_01a3cbda6305fe4827d1bd4ea5328f16 extends Template
 
 
 \t\t";
-        // line 56
+        // line 55
         $this->displayBlock('body', $context, $blocks);
-        // line 57
+        // line 56
         echo "
 \t\t<!-- Footer -->
 \t\t<div class=\"container mt-5\">
@@ -194,7 +193,7 @@ class __TwigTemplate_01a3cbda6305fe4827d1bd4ea5328f16 extends Template
 
     }
 
-    // line 56
+    // line 55
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -218,7 +217,7 @@ class __TwigTemplate_01a3cbda6305fe4827d1bd4ea5328f16 extends Template
 
     public function getDebugInfo()
     {
-        return array (  198 => 56,  188 => 25,  181 => 24,  172 => 21,  162 => 14,  158 => 13,  153 => 12,  146 => 11,  132 => 6,  107 => 57,  105 => 56,  92 => 46,  83 => 40,  73 => 33,  65 => 27,  63 => 24,  60 => 23,  57 => 11,  53 => 8,  51 => 6,  44 => 1,);
+        return array (  197 => 55,  187 => 25,  180 => 24,  171 => 21,  161 => 14,  157 => 13,  152 => 12,  145 => 11,  131 => 6,  106 => 56,  104 => 55,  91 => 45,  83 => 40,  73 => 33,  65 => 27,  63 => 24,  60 => 23,  57 => 11,  53 => 8,  51 => 6,  44 => 1,);
     }
 
     public function getSourceContext()
@@ -256,7 +255,7 @@ class __TwigTemplate_01a3cbda6305fe4827d1bd4ea5328f16 extends Template
 \t\t<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">
 \t\t\t<div class=\"container-fluid\">
 \t\t\t\t<a class=\"navbar-brand\" href=\"{{path('app_homepage') }}\">CyberCom</a>
-\t\t\t\t<button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarColor02\" aria-controls=\"navbarColor02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
+\t\t\t\t<button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarColor02\" aria-controls=\"navbarColor02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
 \t\t\t\t\t<span class=\"navbar-toggler-icon\"></span>
 \t\t\t\t</button>
 \t\t\t\t<div class=\"collapse navbar-collapse\" id=\"navbarColor02\">
@@ -265,9 +264,8 @@ class __TwigTemplate_01a3cbda6305fe4827d1bd4ea5328f16 extends Template
 \t\t\t\t\t\t\t<a class=\"nav-link active\" href=\"{{path('app_utilisateur') }}\">Mon compte
 \t\t\t\t\t\t\t\t<span class=\"visually-hidden\">(current)</span>
 \t\t\t\t\t\t\t</a>
-
 \t\t\t\t\t\t</li>
-\t\t\t\t\t\t<li>
+\t\t\t\t\t\t<li class=\"nav-item\">
 \t\t\t\t\t\t\t<a class=\"nav-link active\" href=\"{{path('app_login') }}\">Connexion
 \t\t\t\t\t\t\t\t<span class=\"visually-hidden\">(current)</span>
 \t\t\t\t\t\t\t</a>

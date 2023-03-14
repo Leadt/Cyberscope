@@ -105,9 +105,31 @@
 			visibility: hidden;
 			clip-path: inset(50%)
 		}
+		.btn-block {
+			margin-top: 10px;
+			text-align: center;
+		}
+		button {
+			width: 100%;
+			padding: 10px 0;
+			margin: 10px auto;
+			border-radius: 5px;
+			border: none;
+			background: #dcb124;
+			font-size: 14px;
+			font-weight: 600;
+			color: #fff;
+		}
+		button:hover {
+			background: #b18f1d;
+		}
 	</style>
 
 	<div class="container">
+
+		<div class="btn-block">
+			<button onclick="window.location.href = '{{ path('app_formPost') }}'">Nouveau post</button>
+		</div>
 
 		<div class="card" aria-hidden="true">
 			<div class="card-body">
@@ -143,6 +165,11 @@
 			<label for="r3" class="react">
 				<i data-icon="🐙"></i>
 			</label>
+
+			<input type="checkbox" id="r4">
+			<label for="r4" class="react">
+				<i data-icon="👍"></i>
+			</label>
 			<br>
 			<a href="#" tabindex="-1" class="btn btn-primary disabled placeholder col-2"></a>
 
@@ -166,19 +193,24 @@
 			<span>Description</span>
 		</p>
 
-		<input type="checkbox" id="r1">
-		<label for="r1" class="react">
+		<input type="checkbox" id="r5">
+		<label for="r5" class="react">
 			<i data-icon="💯"></i>
 		</label>
 
-		<input type="checkbox" id="r2">
-		<label for="r2" class="react">
+		<input type="checkbox" id="r6">
+		<label for="r6" class="react">
 			<i data-icon="❤️"></i>
 		</label>
 
-		<input type="checkbox" id="r3">
-		<label for="r3" class="react">
+		<input type="checkbox" id="r7">
+		<label for="r7" class="react">
 			<i data-icon="🐙"></i>
+		</label>
+
+		<input type="checkbox" id="r8">
+		<label for="r8" class="react">
+			<i data-icon="👍"></i>
 		</label>
 		<br>
 

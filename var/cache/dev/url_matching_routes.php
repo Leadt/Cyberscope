@@ -12,6 +12,7 @@ return [
         '/connexion' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\ConnexionController::index'], null, null, null, false, false, null]],
         '/deconnexion' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\ConnexionController::logout'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'app_homepage', '_controller' => 'App\\Controller\\PostController::index'], null, null, null, false, false, null]],
+        '/formPost' => [[['_route' => 'app_formPost', '_controller' => 'App\\Controller\\PostController::formPost'], null, null, null, false, false, null]],
         '/inscription' => [[['_route' => 'app_register', '_controller' => 'App\\Controller\\RegistrationController::register'], null, null, null, false, false, null]],
         '/utilisateur' => [[['_route' => 'app_utilisateur', '_controller' => 'App\\Controller\\UserController::index'], null, null, null, false, false, null]],
     ],

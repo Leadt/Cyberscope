@@ -172,9 +172,34 @@ class __TwigTemplate_29903d618d2b013fcae3d0121a74dc0a extends Template
 \t\t\tvisibility: hidden;
 \t\t\tclip-path: inset(50%)
 \t\t}
+\t\t.btn-block {
+\t\t\tmargin-top: 10px;
+\t\t\ttext-align: center;
+\t\t}
+\t\tbutton {
+\t\t\twidth: 100%;
+\t\t\tpadding: 10px 0;
+\t\t\tmargin: 10px auto;
+\t\t\tborder-radius: 5px;
+\t\t\tborder: none;
+\t\t\tbackground: #dcb124;
+\t\t\tfont-size: 14px;
+\t\t\tfont-weight: 600;
+\t\t\tcolor: #fff;
+\t\t}
+\t\tbutton:hover {
+\t\t\tbackground: #b18f1d;
+\t\t}
 \t</style>
 
 \t<div class=\"container\">
+
+\t\t<div class=\"btn-block\">
+\t\t\t<button onclick=\"window.location.href = '";
+        // line 131
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_formPost");
+        echo "'\">Nouveau post</button>
+\t\t</div>
 
 \t\t<div class=\"card\" aria-hidden=\"true\">
 \t\t\t<div class=\"card-body\">
@@ -210,6 +235,11 @@ class __TwigTemplate_29903d618d2b013fcae3d0121a74dc0a extends Template
 \t\t\t<label for=\"r3\" class=\"react\">
 \t\t\t\t<i data-icon=\"🐙\"></i>
 \t\t\t</label>
+
+\t\t\t<input type=\"checkbox\" id=\"r4\">
+\t\t\t<label for=\"r4\" class=\"react\">
+\t\t\t\t<i data-icon=\"👍\"></i>
+\t\t\t</label>
 \t\t\t<br>
 \t\t\t<a href=\"#\" tabindex=\"-1\" class=\"btn btn-primary disabled placeholder col-2\"></a>
 
@@ -233,19 +263,24 @@ class __TwigTemplate_29903d618d2b013fcae3d0121a74dc0a extends Template
 \t\t\t<span>Description</span>
 \t\t</p>
 
-\t\t<input type=\"checkbox\" id=\"r1\">
-\t\t<label for=\"r1\" class=\"react\">
+\t\t<input type=\"checkbox\" id=\"r5\">
+\t\t<label for=\"r5\" class=\"react\">
 \t\t\t<i data-icon=\"💯\"></i>
 \t\t</label>
 
-\t\t<input type=\"checkbox\" id=\"r2\">
-\t\t<label for=\"r2\" class=\"react\">
+\t\t<input type=\"checkbox\" id=\"r6\">
+\t\t<label for=\"r6\" class=\"react\">
 \t\t\t<i data-icon=\"❤️\"></i>
 \t\t</label>
 
-\t\t<input type=\"checkbox\" id=\"r3\">
-\t\t<label for=\"r3\" class=\"react\">
+\t\t<input type=\"checkbox\" id=\"r7\">
+\t\t<label for=\"r7\" class=\"react\">
 \t\t\t<i data-icon=\"🐙\"></i>
+\t\t</label>
+
+\t\t<input type=\"checkbox\" id=\"r8\">
+\t\t<label for=\"r8\" class=\"react\">
+\t\t\t<i data-icon=\"👍\"></i>
 \t\t</label>
 \t\t<br>
 
@@ -269,7 +304,7 @@ class __TwigTemplate_29903d618d2b013fcae3d0121a74dc0a extends Template
 
     public function getDebugInfo()
     {
-        return array (  74 => 7,  67 => 6,  53 => 3,  36 => 1,);
+        return array (  200 => 131,  74 => 7,  67 => 6,  53 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -381,9 +416,31 @@ class __TwigTemplate_29903d618d2b013fcae3d0121a74dc0a extends Template
 \t\t\tvisibility: hidden;
 \t\t\tclip-path: inset(50%)
 \t\t}
+\t\t.btn-block {
+\t\t\tmargin-top: 10px;
+\t\t\ttext-align: center;
+\t\t}
+\t\tbutton {
+\t\t\twidth: 100%;
+\t\t\tpadding: 10px 0;
+\t\t\tmargin: 10px auto;
+\t\t\tborder-radius: 5px;
+\t\t\tborder: none;
+\t\t\tbackground: #dcb124;
+\t\t\tfont-size: 14px;
+\t\t\tfont-weight: 600;
+\t\t\tcolor: #fff;
+\t\t}
+\t\tbutton:hover {
+\t\t\tbackground: #b18f1d;
+\t\t}
 \t</style>
 
 \t<div class=\"container\">
+
+\t\t<div class=\"btn-block\">
+\t\t\t<button onclick=\"window.location.href = '{{ path('app_formPost') }}'\">Nouveau post</button>
+\t\t</div>
 
 \t\t<div class=\"card\" aria-hidden=\"true\">
 \t\t\t<div class=\"card-body\">
@@ -419,6 +476,11 @@ class __TwigTemplate_29903d618d2b013fcae3d0121a74dc0a extends Template
 \t\t\t<label for=\"r3\" class=\"react\">
 \t\t\t\t<i data-icon=\"🐙\"></i>
 \t\t\t</label>
+
+\t\t\t<input type=\"checkbox\" id=\"r4\">
+\t\t\t<label for=\"r4\" class=\"react\">
+\t\t\t\t<i data-icon=\"👍\"></i>
+\t\t\t</label>
 \t\t\t<br>
 \t\t\t<a href=\"#\" tabindex=\"-1\" class=\"btn btn-primary disabled placeholder col-2\"></a>
 
@@ -442,25 +504,30 @@ class __TwigTemplate_29903d618d2b013fcae3d0121a74dc0a extends Template
 \t\t\t<span>Description</span>
 \t\t</p>
 
-\t\t<input type=\"checkbox\" id=\"r1\">
-\t\t<label for=\"r1\" class=\"react\">
+\t\t<input type=\"checkbox\" id=\"r5\">
+\t\t<label for=\"r5\" class=\"react\">
 \t\t\t<i data-icon=\"💯\"></i>
 \t\t</label>
 
-\t\t<input type=\"checkbox\" id=\"r2\">
-\t\t<label for=\"r2\" class=\"react\">
+\t\t<input type=\"checkbox\" id=\"r6\">
+\t\t<label for=\"r6\" class=\"react\">
 \t\t\t<i data-icon=\"❤️\"></i>
 \t\t</label>
 
-\t\t<input type=\"checkbox\" id=\"r3\">
-\t\t<label for=\"r3\" class=\"react\">
+\t\t<input type=\"checkbox\" id=\"r7\">
+\t\t<label for=\"r7\" class=\"react\">
 \t\t\t<i data-icon=\"🐙\"></i>
+\t\t</label>
+
+\t\t<input type=\"checkbox\" id=\"r8\">
+\t\t<label for=\"r8\" class=\"react\">
+\t\t\t<i data-icon=\"👍\"></i>
 \t\t</label>
 \t\t<br>
 
 \t\t<a href=\"#\" tabindex=\"-1\" class=\"btn btn-primary disabled \">Commentaire</a>
 \t</div>
 </div></div>{% endblock %}
-", "post/index.html.twig", "/Users/leadrouet/Desktop/ENSC/2A/S8/P2i/Cyberscope/Cybercom/templates/post/index.html.twig");
+", "post/index.html.twig", "/Users/leadrouet/Desktop/ENSC/2A/S8/P2i/Cyberscope/templates/post/index.html.twig");
     }
 }
