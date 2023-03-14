@@ -26,6 +26,18 @@ class Post
     #[ORM\Column(length: 20, nullable: true)]
     private ?string $image_post = null;
 
+    #[ORM\Column(type: 'boolean', options: ['default' => false])]
+    private bool $cent = false;
+
+    #[ORM\Column(type: 'boolean', options: ['default' => false])]
+    private bool $coeur = false;
+
+    #[ORM\Column(type: 'boolean', options: ['default' => false])]
+    private bool $pouce = false;
+
+    #[ORM\Column(type: 'boolean', options: ['default' => false])]
+    private bool $poulpe = false;
+
     #[ORM\ManyToOne(inversedBy: 'posts', targetEntity: User::class)]
     private $user;
 
@@ -77,6 +89,46 @@ class Post
         $this->image_post = $image_post;
 
         return $this;
+    }
+
+    public function getCoeur(): bool
+    {
+        return $this->coeur;
+    }
+
+    public function setCoeur(bool $coeur): void
+    {
+        $this->coeur = $coeur;
+    }
+
+    public function getPouce(): bool
+    {
+        return $this->pouce;
+    }
+
+    public function setPouce(bool $pouce): void
+    {
+        $this->cent = $pouce;
+    }
+
+    public function getPoulpe(): bool
+    {
+        return $this->poulpe;
+    }
+
+    public function setPoulpe(bool $poulpe): void
+    {
+        $this->cent = $poulpe;
+    }
+
+    public function getCent(): bool
+    {
+        return $this->cent;
+    }
+
+    public function setMyBooleanProperty(bool $cent): void
+    {
+        $this->cent = $cent;
     }
 
     /**
