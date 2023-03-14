@@ -297,6 +297,6 @@ class __TwigTemplate_01a3cbda6305fe4827d1bd4ea5328f16 extends Template
 
 \t</body>
 </html>
-", "base.html.twig", "/Users/leadrouet/Desktop/ENSC/2A/S8/P2i/Cyberscope/Cybercom/templates/base.html.twig");
+", "base.html.twig", "/Users/leadrouet/Desktop/ENSC/2A/S8/P2i/Cyberscope/templates/base.html.twig");
     }
 }
