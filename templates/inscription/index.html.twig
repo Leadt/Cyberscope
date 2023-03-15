@@ -72,7 +72,7 @@
 			margin-top: 10px;
 			text-align: center;
 		}
-		button {
+		.button-sign {
 			width: 100%;
 			padding: 10px 0;
 			margin: 10px auto;
@@ -121,7 +121,7 @@
 
 	<hr>
 	<div class="btn-block">
-		<button type="submit" href="{{path('app_homepage')}}">S'inscrire</button>
+		<button class="button-sign" type="submit" href="{{path('app_homepage')}}">S'inscrire</button>
 	</div>
 </form></div>{{ form_start(registrationForm) }}{{ form_row(registrationForm.pseudo_user) }}{{ form_row(registrationForm.plainPassword, {
             label: 'Password'

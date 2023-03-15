@@ -139,7 +139,7 @@ class __TwigTemplate_5be331d03ae100f81f1613d1dfcc3465 extends Template
 \t\t\tmargin-top: 10px;
 \t\t\ttext-align: center;
 \t\t}
-\t\tbutton {
+\t\t.button-login {
 \t\t\twidth: 100%;
 \t\t\tpadding: 10px 0;
 \t\t\tmargin: 10px auto;
@@ -212,7 +212,7 @@ class __TwigTemplate_5be331d03ae100f81f1613d1dfcc3465 extends Template
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
         echo "\">S'inscrire</a>
 \t\t</p>
-\t\t<button type=\"submit\" href=\"";
+\t\t<button class=\"button-login\" type=\"submit\" href=\"";
         // line 123
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_homepage");
         echo "\">Se connecter</button>
@@ -314,7 +314,7 @@ class __TwigTemplate_5be331d03ae100f81f1613d1dfcc3465 extends Template
 \t\t\tmargin-top: 10px;
 \t\t\ttext-align: center;
 \t\t}
-\t\tbutton {
+\t\t.button-login {
 \t\t\twidth: 100%;
 \t\t\tpadding: 10px 0;
 \t\t\tmargin: 10px auto;
@@ -362,7 +362,7 @@ class __TwigTemplate_5be331d03ae100f81f1613d1dfcc3465 extends Template
 \t\t<p>
 \t\t\t<a href=\"{{path('app_register')}}\">S'inscrire</a>
 \t\t</p>
-\t\t<button type=\"submit\" href=\"{{path('app_homepage')}}\">Se connecter</button>
+\t\t<button class=\"button-login\" type=\"submit\" href=\"{{path('app_homepage')}}\">Se connecter</button>
 \t</div>
 </form></div>{% endblock %}
 ", "connexion/index.html.twig", "/Users/leadrouet/Desktop/ENSC/2A/S8/P2i/Cyberscope/templates/connexion/index.html.twig");

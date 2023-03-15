@@ -117,9 +117,9 @@ class __TwigTemplate_cbc99e712a2f0c4108c7fc6328bc57f3 extends Template
 \t\ttextarea {
 \t\t\trows: 1000;
 \t\t\theight: 80px;
-\t\t\twidth: calc(100% - 57px);
+\t\t\twidth: 100%;
 \t\t\tmargin: 13px 0 0 -5px;
-\t\t\tpadding-left: 10px;
+\t\t\tpadding-left: 12px;
 \t\t\tborder-radius: 5px 5px 5px 5px;
 \t\t\tborder: solid 1px #cbc9c9;
 \t\t\tbox-shadow: 1px 2px 5px rgba(0, 0, 0, 0.09);
@@ -128,7 +128,7 @@ class __TwigTemplate_cbc99e712a2f0c4108c7fc6328bc57f3 extends Template
 \t\t}
 \t\tinput[type=text],
 \t\tinput[type=password] {
-\t\t\twidth: calc(100% - 57px);
+\t\t\twidth: 100%;
 \t\t\theight: 36px;
 \t\t\tmargin: 13px 0 0 -5px;
 \t\t\tpadding-left: 10px;
@@ -152,7 +152,7 @@ class __TwigTemplate_cbc99e712a2f0c4108c7fc6328bc57f3 extends Template
 \t\t\tmargin-top: 10px;
 \t\t\ttext-align: center;
 \t\t}
-\t\tbutton {
+\t\t.button-create {
 \t\t\twidth: 100%;
 \t\t\tpadding: 10px 0;
 \t\t\tmargin: 10px auto;
@@ -187,7 +187,7 @@ Ajouter une illustration
 <hr>
 
 <div class=\"btn-block\">
-\t<button type=\"submit\" href=\"";
+\t<button class=\"button-create\" type=\"submit\" href=\"";
         // line 120
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_homepage");
         echo "\">Créer</button>
@@ -266,9 +266,9 @@ Ajouter une illustration
 \t\ttextarea {
 \t\t\trows: 1000;
 \t\t\theight: 80px;
-\t\t\twidth: calc(100% - 57px);
+\t\t\twidth: 100%;
 \t\t\tmargin: 13px 0 0 -5px;
-\t\t\tpadding-left: 10px;
+\t\t\tpadding-left: 12px;
 \t\t\tborder-radius: 5px 5px 5px 5px;
 \t\t\tborder: solid 1px #cbc9c9;
 \t\t\tbox-shadow: 1px 2px 5px rgba(0, 0, 0, 0.09);
@@ -277,7 +277,7 @@ Ajouter une illustration
 \t\t}
 \t\tinput[type=text],
 \t\tinput[type=password] {
-\t\t\twidth: calc(100% - 57px);
+\t\t\twidth: 100%;
 \t\t\theight: 36px;
 \t\t\tmargin: 13px 0 0 -5px;
 \t\t\tpadding-left: 10px;
@@ -301,7 +301,7 @@ Ajouter une illustration
 \t\t\tmargin-top: 10px;
 \t\t\ttext-align: center;
 \t\t}
-\t\tbutton {
+\t\t.button-create {
 \t\t\twidth: 100%;
 \t\t\tpadding: 10px 0;
 \t\t\tmargin: 10px auto;
@@ -333,7 +333,7 @@ Ajouter une illustration
 <hr>
 
 <div class=\"btn-block\">
-\t<button type=\"submit\" href=\"{{path('app_homepage')}}\">Créer</button>
+\t<button class=\"button-create\" type=\"submit\" href=\"{{path('app_homepage')}}\">Créer</button>
 </div></form></div>{% endblock %}
 ", "post/formPost.html.twig", "/Users/leadrouet/Desktop/ENSC/2A/S8/P2i/Cyberscope/templates/post/formPost.html.twig");
     }

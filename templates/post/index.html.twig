@@ -109,7 +109,7 @@
 			margin-top: 10px;
 			text-align: center;
 		}
-		button {
+		.button-add {
 			width: 100%;
 			padding: 10px 0;
 			margin: 10px auto;
@@ -128,7 +128,7 @@
 	<div class="container">
 
 		<div class="btn-block">
-			<button onclick="window.location.href = '{{ path('app_formPost') }}'">Nouveau post</button>
+			<button class="button-add" onclick="window.location.href = '{{ path('app_formPost') }}'">Nouveau post</button>
 		</div>
 
 		<div class="card" aria-hidden="true">
@@ -214,6 +214,6 @@
 		</label>
 		<br>
 
-		<a href="#" tabindex="-1" class="btn btn-primary disabled ">Commentaire</a>
+		<a href="#" tabindex="-1" class="btn btn-primary disabled ">Commenter</a>
 	</div>
 </div></div>{% endblock %}

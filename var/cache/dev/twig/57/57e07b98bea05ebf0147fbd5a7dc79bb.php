@@ -58,18 +58,25 @@ class __TwigTemplate_01a3cbda6305fe4827d1bd4ea5328f16 extends Template
         $this->displayBlock('stylesheets', $context, $blocks);
         // line 23
         echo "
+\t\t<style>
+
+\t\t\tfooter {
+\t\t\t\twidth: 100%;
+\t\t\t\theight: 1px;
+\t\t\t}
+\t\t</style>
+
 \t\t";
-        // line 24
+        // line 32
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 27
+        // line 36
         echo "\t</head>
 \t<body>
-
 
 \t\t<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">
 \t\t\t<div class=\"container-fluid\">
 \t\t\t\t<a class=\"navbar-brand\" href=\"";
-        // line 33
+        // line 41
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_homepage");
         echo "\">CyberCom</a>
 \t\t\t\t<button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarColor02\" aria-controls=\"navbarColor02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
@@ -79,7 +86,7 @@ class __TwigTemplate_01a3cbda6305fe4827d1bd4ea5328f16 extends Template
 \t\t\t\t\t<ul class=\"navbar-nav me-auto\">
 \t\t\t\t\t\t<li class=\"nav-item\">
 \t\t\t\t\t\t\t<a class=\"nav-link active\" href=\"";
-        // line 40
+        // line 48
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_utilisateur");
         echo "\">Mon compte
 \t\t\t\t\t\t\t\t<span class=\"visually-hidden\">(current)</span>
@@ -87,7 +94,7 @@ class __TwigTemplate_01a3cbda6305fe4827d1bd4ea5328f16 extends Template
 \t\t\t\t\t\t</li>
 \t\t\t\t\t\t<li class=\"nav-item\">
 \t\t\t\t\t\t\t<a class=\"nav-link active\" href=\"";
-        // line 45
+        // line 53
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
         echo "\">Connexion
 \t\t\t\t\t\t\t\t<span class=\"visually-hidden\">(current)</span>
@@ -97,12 +104,24 @@ class __TwigTemplate_01a3cbda6305fe4827d1bd4ea5328f16 extends Template
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t</nav>
+\t\t<script>
+\t\t\t// Récupère le bouton de bascule de la navigation
+var navbarToggle = document.querySelector('.navbar-toggler');
+
+// Récupère la zone de navigation
+var navbarCollapse = document.querySelector('.navbar-collapse');
+
+// Ajoute un écouteur d'événements pour le clic sur le bouton de bascule
+navbarToggle.addEventListener('click', function () { // Bascule la classe 'show' sur la zone de navigation
+navbarCollapse.classList.toggle('show');
+});
+\t\t</script>
 
 
 \t\t";
-        // line 55
+        // line 75
         $this->displayBlock('body', $context, $blocks);
-        // line 56
+        // line 76
         echo "
 \t\t<!-- Footer -->
 \t\t<div class=\"container mt-5\">
@@ -168,7 +187,7 @@ class __TwigTemplate_01a3cbda6305fe4827d1bd4ea5328f16 extends Template
 \t\t\t<link href=\"https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap\" rel=\"stylesheet\">
 \t\t\t<link rel=\"stylesheet\" href=\"";
         // line 21
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("styles/app.css"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("public/css/app.css"), "html", null, true);
         echo "\">
 \t\t";
         
@@ -176,24 +195,25 @@ class __TwigTemplate_01a3cbda6305fe4827d1bd4ea5328f16 extends Template
 
     }
 
-    // line 24
+    // line 32
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 25
+        // line 33
         echo "\t\t\t";
         echo twig_escape_filter($this->env, $this->env->getFunction('encore_entry_script_tags')->getCallable()("app"), "html", null, true);
         echo "
+
 \t\t";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
     }
 
-    // line 55
+    // line 75
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -217,7 +237,7 @@ class __TwigTemplate_01a3cbda6305fe4827d1bd4ea5328f16 extends Template
 
     public function getDebugInfo()
     {
-        return array (  197 => 55,  187 => 25,  180 => 24,  171 => 21,  161 => 14,  157 => 13,  152 => 12,  145 => 11,  131 => 6,  106 => 56,  104 => 55,  91 => 45,  83 => 40,  73 => 33,  65 => 27,  63 => 24,  60 => 23,  57 => 11,  53 => 8,  51 => 6,  44 => 1,);
+        return array (  217 => 75,  206 => 33,  199 => 32,  190 => 21,  180 => 14,  176 => 13,  171 => 12,  164 => 11,  150 => 6,  125 => 76,  123 => 75,  98 => 53,  90 => 48,  80 => 41,  73 => 36,  71 => 32,  60 => 23,  57 => 11,  53 => 8,  51 => 6,  44 => 1,);
     }
 
     public function getSourceContext()
@@ -242,15 +262,23 @@ class __TwigTemplate_01a3cbda6305fe4827d1bd4ea5328f16 extends Template
 \t\t\t<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">
 \t\t\t<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>
 \t\t\t<link href=\"https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap\" rel=\"stylesheet\">
-\t\t\t<link rel=\"stylesheet\" href=\"{{ asset('styles/app.css') }}\">
+\t\t\t<link rel=\"stylesheet\" href=\"{{ asset('public/css/app.css') }}\">
 \t\t{% endblock %}
+
+\t\t<style>
+
+\t\t\tfooter {
+\t\t\t\twidth: 100%;
+\t\t\t\theight: 1px;
+\t\t\t}
+\t\t</style>
 
 \t\t{% block javascripts %}
 \t\t\t{{ encore_entry_script_tags('app') }}
+
 \t\t{% endblock %}
 \t</head>
 \t<body>
-
 
 \t\t<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">
 \t\t\t<div class=\"container-fluid\">
@@ -274,6 +302,18 @@ class __TwigTemplate_01a3cbda6305fe4827d1bd4ea5328f16 extends Template
 \t\t\t\t</div>
 \t\t\t</div>
 \t\t</nav>
+\t\t<script>
+\t\t\t// Récupère le bouton de bascule de la navigation
+var navbarToggle = document.querySelector('.navbar-toggler');
+
+// Récupère la zone de navigation
+var navbarCollapse = document.querySelector('.navbar-collapse');
+
+// Ajoute un écouteur d'événements pour le clic sur le bouton de bascule
+navbarToggle.addEventListener('click', function () { // Bascule la classe 'show' sur la zone de navigation
+navbarCollapse.classList.toggle('show');
+});
+\t\t</script>
 
 
 \t\t{% block body %}{% endblock %}

@@ -176,7 +176,7 @@ class __TwigTemplate_29903d618d2b013fcae3d0121a74dc0a extends Template
 \t\t\tmargin-top: 10px;
 \t\t\ttext-align: center;
 \t\t}
-\t\tbutton {
+\t\t.button-add {
 \t\t\twidth: 100%;
 \t\t\tpadding: 10px 0;
 \t\t\tmargin: 10px auto;
@@ -195,7 +195,7 @@ class __TwigTemplate_29903d618d2b013fcae3d0121a74dc0a extends Template
 \t<div class=\"container\">
 
 \t\t<div class=\"btn-block\">
-\t\t\t<button onclick=\"window.location.href = '";
+\t\t\t<button class=\"button-add\" onclick=\"window.location.href = '";
         // line 131
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_formPost");
         echo "'\">Nouveau post</button>
@@ -284,7 +284,7 @@ class __TwigTemplate_29903d618d2b013fcae3d0121a74dc0a extends Template
 \t\t</label>
 \t\t<br>
 
-\t\t<a href=\"#\" tabindex=\"-1\" class=\"btn btn-primary disabled \">Commentaire</a>
+\t\t<a href=\"#\" tabindex=\"-1\" class=\"btn btn-primary disabled \">Commenter</a>
 \t</div>
 </div></div>";
         
@@ -420,7 +420,7 @@ class __TwigTemplate_29903d618d2b013fcae3d0121a74dc0a extends Template
 \t\t\tmargin-top: 10px;
 \t\t\ttext-align: center;
 \t\t}
-\t\tbutton {
+\t\t.button-add {
 \t\t\twidth: 100%;
 \t\t\tpadding: 10px 0;
 \t\t\tmargin: 10px auto;
@@ -439,7 +439,7 @@ class __TwigTemplate_29903d618d2b013fcae3d0121a74dc0a extends Template
 \t<div class=\"container\">
 
 \t\t<div class=\"btn-block\">
-\t\t\t<button onclick=\"window.location.href = '{{ path('app_formPost') }}'\">Nouveau post</button>
+\t\t\t<button class=\"button-add\" onclick=\"window.location.href = '{{ path('app_formPost') }}'\">Nouveau post</button>
 \t\t</div>
 
 \t\t<div class=\"card\" aria-hidden=\"true\">
@@ -525,7 +525,7 @@ class __TwigTemplate_29903d618d2b013fcae3d0121a74dc0a extends Template
 \t\t</label>
 \t\t<br>
 
-\t\t<a href=\"#\" tabindex=\"-1\" class=\"btn btn-primary disabled \">Commentaire</a>
+\t\t<a href=\"#\" tabindex=\"-1\" class=\"btn btn-primary disabled \">Commenter</a>
 \t</div>
 </div></div>{% endblock %}
 ", "post/index.html.twig", "/Users/leadrouet/Desktop/ENSC/2A/S8/P2i/Cyberscope/templates/post/index.html.twig");
