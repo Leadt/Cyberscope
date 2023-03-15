@@ -64,64 +64,142 @@ class __TwigTemplate_01a3cbda6305fe4827d1bd4ea5328f16 extends Template
 \t\t\t\twidth: 100%;
 \t\t\t\theight: 1px;
 \t\t\t}
+\t\t\thtml,
+\t\t\tbody,
+\t\t\tdiv {
+\t\t\t\tmargin: 0;
+\t\t\t\tpadding: 0;
+\t\t\t\tfont-family: \"Helvetica Neue\", Helvetica, sans-serif;
+\t\t\t}
+
+\t\t\t#menu {
+
+\t\t\t\tposition: relative;
+\t\t\t\ttext-align: center;
+\t\t\t\tmargin: 10px;
+\t\t\t}
+
+\t\t\t#menu-line {
+\t\t\t\tdisplay: block;
+\t\t\t\tposition: absolute;
+\t\t\t\tleft: 50%;
+\t\t\t\ttop: 25px;
+\t\t\t\twidth: 0;
+\t\t\t\theight: 5px;
+\t\t\t\tbackground-color: black;
+\t\t\t}
+
+\t\t\tul {
+\t\t\t\tz-index: 100;
+\t\t\t}
+
+\t\t\tul li {
+\t\t\t\tdisplay: inline-block;
+\t\t\t\tmargin-right: 30px;
+\t\t\t}
+
+\t\t\tul li a {
+\t\t\t\tdisplay: block;
+\t\t\t\tfont-size: 20px;
+\t\t\t\ttext-transform: uppercase;
+\t\t\t\ttext-decoration: none;
+\t\t\t\tcolor: black;
+\t\t\t}
 \t\t</style>
 
 \t\t";
-        // line 32
+        // line 73
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 36
+        // line 77
         echo "\t</head>
 \t<body>
-
-\t\t<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">
-\t\t\t<div class=\"container-fluid\">
-\t\t\t\t<a class=\"navbar-brand\" href=\"";
-        // line 41
+\t\t<div id=\"menu\">
+\t\t\t<ul id=\"menu-list\">
+\t\t\t\t<li>
+\t\t\t\t\t<a href=\"";
+        // line 82
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_homepage");
         echo "\">CyberCom</a>
-\t\t\t\t<button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarColor02\" aria-controls=\"navbarColor02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
-\t\t\t\t\t<span class=\"navbar-toggler-icon\"></span>
-\t\t\t\t</button>
-\t\t\t\t<div class=\"collapse navbar-collapse\" id=\"navbarColor02\">
-\t\t\t\t\t<ul class=\"navbar-nav me-auto\">
-\t\t\t\t\t\t<li class=\"nav-item\">
-\t\t\t\t\t\t\t<a class=\"nav-link active\" href=\"";
-        // line 48
+\t\t\t\t</li>
+\t\t\t\t<li>
+\t\t\t\t\t<a href=\"";
+        // line 85
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_utilisateur");
-        echo "\">Mon compte
-\t\t\t\t\t\t\t\t<span class=\"visually-hidden\">(current)</span>
-\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t</li>
-\t\t\t\t\t\t<li class=\"nav-item\">
-\t\t\t\t\t\t\t<a class=\"nav-link active\" href=\"";
-        // line 53
+        echo "\">Mon compte</a>
+\t\t\t\t</li>
+\t\t\t\t<li>
+\t\t\t\t\t<a href=\"";
+        // line 88
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
-        echo "\">Connexion
-\t\t\t\t\t\t\t\t<span class=\"visually-hidden\">(current)</span>
-\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t</li>
-\t\t\t\t\t</ul>
-\t\t\t\t</div>
-\t\t\t</div>
-\t\t</nav>
+        echo "\">Connexion</a>
+\t\t\t\t</li>
+\t\t\t</ul>
+\t\t\t<div id=\"menu-line\"></div>
+\t\t</div>
+
+
 \t\t<script>
-\t\t\t// Récupère le bouton de bascule de la navigation
-var navbarToggle = document.querySelector('.navbar-toggler');
 
-// Récupère la zone de navigation
-var navbarCollapse = document.querySelector('.navbar-collapse');
+\t\t\t\$(function () {
 
-// Ajoute un écouteur d'événements pour le clic sur le bouton de bascule
-navbarToggle.addEventListener('click', function () { // Bascule la classe 'show' sur la zone de navigation
-navbarCollapse.classList.toggle('show');
+var currentIndex = 0;
+var _offset = 10;
+
+var \$menuLi = \$(\"#menu-list li\");
+var \$line = \$(\"#menu-line\");
+
+\$menuLi.on(\"click\", function () {
+
+var _\$this = \$(this);
+
+TweenMax.killTweensOf(\$line);
+
+if (_\$this.index() > currentIndex) {
+
+TweenMax.to(\$line, 0.5, {
+css: {
+width: (_\$this.position().left + _\$this.outerWidth()) - \$line.position().left + _offset / 2
+},
+onComplete: function () {
+currentIndex = _\$this.index();
+TweenMax.to(\$line, 0.5, {
+css: {
+left: _\$this.position().left - _offset / 2,
+width: _\$this.outerWidth() + _offset
+}
+})
+}
+});
+
+} else {
+
+TweenMax.to(\$line, 0.5, {
+css: {
+left: _\$this.position().left - _offset / 2,
+width: (\$line.position().left + \$line.outerWidth()) - _\$this.position().left + _offset / 2
+},
+onComplete: function () {
+currentIndex = _\$this.index();
+TweenMax.to(\$line, 0.5, {
+css: {
+width: _\$this.outerWidth() + _offset
+}
+})
+}
+});
+
+}
+
+});
+
 });
 \t\t</script>
 
 
 \t\t";
-        // line 75
+        // line 153
         $this->displayBlock('body', $context, $blocks);
-        // line 76
+        // line 154
         echo "
 \t\t<!-- Footer -->
 \t\t<div class=\"container mt-5\">
@@ -195,14 +273,14 @@ navbarCollapse.classList.toggle('show');
 
     }
 
-    // line 32
+    // line 73
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 33
+        // line 74
         echo "\t\t\t";
         echo twig_escape_filter($this->env, $this->env->getFunction('encore_entry_script_tags')->getCallable()("app"), "html", null, true);
         echo "
@@ -213,7 +291,7 @@ navbarCollapse.classList.toggle('show');
 
     }
 
-    // line 75
+    // line 153
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -237,7 +315,7 @@ navbarCollapse.classList.toggle('show');
 
     public function getDebugInfo()
     {
-        return array (  217 => 75,  206 => 33,  199 => 32,  190 => 21,  180 => 14,  176 => 13,  171 => 12,  164 => 11,  150 => 6,  125 => 76,  123 => 75,  98 => 53,  90 => 48,  80 => 41,  73 => 36,  71 => 32,  60 => 23,  57 => 11,  53 => 8,  51 => 6,  44 => 1,);
+        return array (  295 => 153,  284 => 74,  277 => 73,  268 => 21,  258 => 14,  254 => 13,  249 => 12,  242 => 11,  228 => 6,  203 => 154,  201 => 153,  133 => 88,  127 => 85,  121 => 82,  114 => 77,  112 => 73,  60 => 23,  57 => 11,  53 => 8,  51 => 6,  44 => 1,);
     }
 
     public function getSourceContext()
@@ -271,6 +349,47 @@ navbarCollapse.classList.toggle('show');
 \t\t\t\twidth: 100%;
 \t\t\t\theight: 1px;
 \t\t\t}
+\t\t\thtml,
+\t\t\tbody,
+\t\t\tdiv {
+\t\t\t\tmargin: 0;
+\t\t\t\tpadding: 0;
+\t\t\t\tfont-family: \"Helvetica Neue\", Helvetica, sans-serif;
+\t\t\t}
+
+\t\t\t#menu {
+
+\t\t\t\tposition: relative;
+\t\t\t\ttext-align: center;
+\t\t\t\tmargin: 10px;
+\t\t\t}
+
+\t\t\t#menu-line {
+\t\t\t\tdisplay: block;
+\t\t\t\tposition: absolute;
+\t\t\t\tleft: 50%;
+\t\t\t\ttop: 25px;
+\t\t\t\twidth: 0;
+\t\t\t\theight: 5px;
+\t\t\t\tbackground-color: black;
+\t\t\t}
+
+\t\t\tul {
+\t\t\t\tz-index: 100;
+\t\t\t}
+
+\t\t\tul li {
+\t\t\t\tdisplay: inline-block;
+\t\t\t\tmargin-right: 30px;
+\t\t\t}
+
+\t\t\tul li a {
+\t\t\t\tdisplay: block;
+\t\t\t\tfont-size: 20px;
+\t\t\t\ttext-transform: uppercase;
+\t\t\t\ttext-decoration: none;
+\t\t\t\tcolor: black;
+\t\t\t}
 \t\t</style>
 
 \t\t{% block javascripts %}
@@ -279,39 +398,76 @@ navbarCollapse.classList.toggle('show');
 \t\t{% endblock %}
 \t</head>
 \t<body>
+\t\t<div id=\"menu\">
+\t\t\t<ul id=\"menu-list\">
+\t\t\t\t<li>
+\t\t\t\t\t<a href=\"{{path('app_homepage') }}\">CyberCom</a>
+\t\t\t\t</li>
+\t\t\t\t<li>
+\t\t\t\t\t<a href=\"{{path('app_utilisateur') }}\">Mon compte</a>
+\t\t\t\t</li>
+\t\t\t\t<li>
+\t\t\t\t\t<a href=\"{{path('app_login') }}\">Connexion</a>
+\t\t\t\t</li>
+\t\t\t</ul>
+\t\t\t<div id=\"menu-line\"></div>
+\t\t</div>
 
-\t\t<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">
-\t\t\t<div class=\"container-fluid\">
-\t\t\t\t<a class=\"navbar-brand\" href=\"{{path('app_homepage') }}\">CyberCom</a>
-\t\t\t\t<button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarColor02\" aria-controls=\"navbarColor02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
-\t\t\t\t\t<span class=\"navbar-toggler-icon\"></span>
-\t\t\t\t</button>
-\t\t\t\t<div class=\"collapse navbar-collapse\" id=\"navbarColor02\">
-\t\t\t\t\t<ul class=\"navbar-nav me-auto\">
-\t\t\t\t\t\t<li class=\"nav-item\">
-\t\t\t\t\t\t\t<a class=\"nav-link active\" href=\"{{path('app_utilisateur') }}\">Mon compte
-\t\t\t\t\t\t\t\t<span class=\"visually-hidden\">(current)</span>
-\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t</li>
-\t\t\t\t\t\t<li class=\"nav-item\">
-\t\t\t\t\t\t\t<a class=\"nav-link active\" href=\"{{path('app_login') }}\">Connexion
-\t\t\t\t\t\t\t\t<span class=\"visually-hidden\">(current)</span>
-\t\t\t\t\t\t\t</a>
-\t\t\t\t\t\t</li>
-\t\t\t\t\t</ul>
-\t\t\t\t</div>
-\t\t\t</div>
-\t\t</nav>
+
 \t\t<script>
-\t\t\t// Récupère le bouton de bascule de la navigation
-var navbarToggle = document.querySelector('.navbar-toggler');
 
-// Récupère la zone de navigation
-var navbarCollapse = document.querySelector('.navbar-collapse');
+\t\t\t\$(function () {
 
-// Ajoute un écouteur d'événements pour le clic sur le bouton de bascule
-navbarToggle.addEventListener('click', function () { // Bascule la classe 'show' sur la zone de navigation
-navbarCollapse.classList.toggle('show');
+var currentIndex = 0;
+var _offset = 10;
+
+var \$menuLi = \$(\"#menu-list li\");
+var \$line = \$(\"#menu-line\");
+
+\$menuLi.on(\"click\", function () {
+
+var _\$this = \$(this);
+
+TweenMax.killTweensOf(\$line);
+
+if (_\$this.index() > currentIndex) {
+
+TweenMax.to(\$line, 0.5, {
+css: {
+width: (_\$this.position().left + _\$this.outerWidth()) - \$line.position().left + _offset / 2
+},
+onComplete: function () {
+currentIndex = _\$this.index();
+TweenMax.to(\$line, 0.5, {
+css: {
+left: _\$this.position().left - _offset / 2,
+width: _\$this.outerWidth() + _offset
+}
+})
+}
+});
+
+} else {
+
+TweenMax.to(\$line, 0.5, {
+css: {
+left: _\$this.position().left - _offset / 2,
+width: (\$line.position().left + \$line.outerWidth()) - _\$this.position().left + _offset / 2
+},
+onComplete: function () {
+currentIndex = _\$this.index();
+TweenMax.to(\$line, 0.5, {
+css: {
+width: _\$this.outerWidth() + _offset
+}
+})
+}
+});
+
+}
+
+});
+
 });
 \t\t</script>
 
