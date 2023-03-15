@@ -56,153 +56,45 @@ class __TwigTemplate_01a3cbda6305fe4827d1bd4ea5328f16 extends Template
         // line 11
         echo "\t\t";
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 23
+        // line 66
         echo "
-\t\t<style>
-
-\t\t\tfooter {
-\t\t\t\twidth: 100%;
-\t\t\t\theight: 1px;
-\t\t\t}
-\t\t\thtml,
-\t\t\tbody,
-\t\t\tdiv {
-\t\t\t\tmargin: 0;
-\t\t\t\tpadding: 0;
-\t\t\t\tfont-family: \"Helvetica Neue\", Helvetica, sans-serif;
-\t\t\t}
-
-\t\t\t#menu {
-
-\t\t\t\tposition: relative;
-\t\t\t\ttext-align: center;
-\t\t\t\tmargin: 10px;
-\t\t\t}
-
-\t\t\t#menu-line {
-\t\t\t\tdisplay: block;
-\t\t\t\tposition: absolute;
-\t\t\t\tleft: 50%;
-\t\t\t\ttop: 25px;
-\t\t\t\twidth: 0;
-\t\t\t\theight: 5px;
-\t\t\t\tbackground-color: black;
-\t\t\t}
-
-\t\t\tul {
-\t\t\t\tz-index: 100;
-\t\t\t}
-
-\t\t\tul li {
-\t\t\t\tdisplay: inline-block;
-\t\t\t\tmargin-right: 30px;
-\t\t\t}
-
-\t\t\tul li a {
-\t\t\t\tdisplay: block;
-\t\t\t\tfont-size: 20px;
-\t\t\t\ttext-transform: uppercase;
-\t\t\t\ttext-decoration: none;
-\t\t\t\tcolor: black;
-\t\t\t}
-\t\t</style>
-
 \t\t";
-        // line 73
+        // line 67
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 77
-        echo "\t</head>
-\t<body>
-\t\t<div id=\"menu\">
-\t\t\t<ul id=\"menu-list\">
-\t\t\t\t<li>
-\t\t\t\t\t<a href=\"";
-        // line 82
+        // line 71
+        echo "
+
+\t\t<ul class=\"nav\">
+\t\t\t<li class=\"navli\">
+\t\t\t\t<a class=\"nava\" href=\"";
+        // line 75
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_homepage");
-        echo "\">CyberCom</a>
-\t\t\t\t</li>
-\t\t\t\t<li>
-\t\t\t\t\t<a href=\"";
-        // line 85
+        echo "\">
+\t\t\t\t\tCyberCom
+\t\t\t\t</a>
+\t\t\t</li>
+\t\t\t<li class=\"navli\">
+\t\t\t\t<a class=\"nava\" href=\"";
+        // line 80
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_utilisateur");
-        echo "\">Mon compte</a>
-\t\t\t\t</li>
-\t\t\t\t<li>
-\t\t\t\t\t<a href=\"";
-        // line 88
+        echo "\">
+\t\t\t\t\tMon compte
+\t\t\t\t</a>
+\t\t\t</li>
+\t\t\t<li class=\"navli\">
+\t\t\t\t<a class=\"nava\" href=\"";
+        // line 85
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
-        echo "\">Connexion</a>
-\t\t\t\t</li>
-\t\t\t</ul>
-\t\t\t<div id=\"menu-line\"></div>
-\t\t</div>
-
-
-\t\t<script>
-
-\t\t\t\$(function () {
-
-var currentIndex = 0;
-var _offset = 10;
-
-var \$menuLi = \$(\"#menu-list li\");
-var \$line = \$(\"#menu-line\");
-
-\$menuLi.on(\"click\", function () {
-
-var _\$this = \$(this);
-
-TweenMax.killTweensOf(\$line);
-
-if (_\$this.index() > currentIndex) {
-
-TweenMax.to(\$line, 0.5, {
-css: {
-width: (_\$this.position().left + _\$this.outerWidth()) - \$line.position().left + _offset / 2
-},
-onComplete: function () {
-currentIndex = _\$this.index();
-TweenMax.to(\$line, 0.5, {
-css: {
-left: _\$this.position().left - _offset / 2,
-width: _\$this.outerWidth() + _offset
-}
-})
-}
-});
-
-} else {
-
-TweenMax.to(\$line, 0.5, {
-css: {
-left: _\$this.position().left - _offset / 2,
-width: (\$line.position().left + \$line.outerWidth()) - _\$this.position().left + _offset / 2
-},
-onComplete: function () {
-currentIndex = _\$this.index();
-TweenMax.to(\$line, 0.5, {
-css: {
-width: _\$this.outerWidth() + _offset
-}
-})
-}
-});
-
-}
-
-});
-
-});
-\t\t</script>
+        echo "\">
+\t\t\t\t\tConnexion</a>
+\t\t\t</li>
+\t\t</ul>
 
 
 \t\t";
-        // line 153
+        // line 91
         $this->displayBlock('body', $context, $blocks);
-        // line 154
-        echo "
-\t\t<!-- Footer -->
-\t\t<div class=\"container mt-5\">
+        echo "<!-- Footer --><div class=\"container mt-5\">
 \t\t\t<footer class=\"d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top\">
 \t\t\t\t<div class=\"col-md-4 d-flex align-items-center\">
 \t\t\t\t\t<span class=\"me-1\" style=\"color: red;\">
@@ -213,10 +105,7 @@ width: _\$this.outerWidth() + _offset
 
 
 \t\t\t</footer>
-\t\t</div>
-\t\t<!-- End Footer -->
-
-\t</body>
+\t\t</div><!-- End Footer --></head>
 </html>
 ";
         
@@ -267,20 +156,63 @@ width: _\$this.outerWidth() + _offset
         // line 21
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("public/css/app.css"), "html", null, true);
         echo "\">
+
+
+\t\t\t<style>
+
+\t\t\t\tfooter {
+\t\t\t\t\twidth: 100%;
+\t\t\t\t\theight: 1px;
+\t\t\t\t}
+\t\t\t\tbody {
+\t\t\t\t\tbackground: #1A1E23;
+\t\t\t\t}
+
+\t\t\t\t@import url(\"https://fonts.googleapis.com/css?family=Raleway:400,400i,700\");
+
+\t\t\t\t.nav {
+\t\t\t\t\tdisplay: flex;
+\t\t\t\t\tjustify-content: center
+\t\t\t\t}
+\t\t\t\t.navli {
+\t\t\t\t\tpadding: 10px;
+\t\t\t\t}
+
+\t\t\t\t.nava {
+\t\t\t\t\t--fill-color: #b18f1d;
+\t\t\t\t\tposition: relative;
+\t\t\t\t\tdisplay: block;
+\t\t\t\t\tpadding: 4px 0;
+\t\t\t\t\tfont: 700 2rem Raleway, sans-serif;
+\t\t\t\t\ttext-decoration: none;
+\t\t\t\t\ttext-transform: uppercase;
+\t\t\t\t\t-webkit-text-stroke: 2px var(--fill-color);
+\t\t\t\t\tbackground: linear-gradient(var(--fill-color) 0 100%) left / 0 no-repeat;
+\t\t\t\t\tcolor: transparent;
+\t\t\t\t\tbackground-clip: text;
+\t\t\t\t\ttransition: 0.5s linear;
+\t\t\t\t\ttext-align: justify;
+\t\t\t\t}
+\t\t\t\t.nava:hover {
+\t\t\t\t\tbackground-size: 100%;
+\t\t\t\t\tcolor: #dcb124;
+\t\t\t\t}
+\t\t\t</style>
+
 \t\t";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
     }
 
-    // line 73
+    // line 67
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 74
+        // line 68
         echo "\t\t\t";
         echo twig_escape_filter($this->env, $this->env->getFunction('encore_entry_script_tags')->getCallable()("app"), "html", null, true);
         echo "
@@ -291,7 +223,7 @@ width: _\$this.outerWidth() + _offset
 
     }
 
-    // line 153
+    // line 91
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -315,7 +247,7 @@ width: _\$this.outerWidth() + _offset
 
     public function getDebugInfo()
     {
-        return array (  295 => 153,  284 => 74,  277 => 73,  268 => 21,  258 => 14,  254 => 13,  249 => 12,  242 => 11,  228 => 6,  203 => 154,  201 => 153,  133 => 88,  127 => 85,  121 => 82,  114 => 77,  112 => 73,  60 => 23,  57 => 11,  53 => 8,  51 => 6,  44 => 1,);
+        return array (  227 => 91,  216 => 68,  209 => 67,  157 => 21,  147 => 14,  143 => 13,  138 => 12,  131 => 11,  117 => 6,  96 => 91,  87 => 85,  79 => 80,  71 => 75,  65 => 71,  63 => 67,  60 => 66,  57 => 11,  53 => 8,  51 => 6,  44 => 1,);
     }
 
     public function getSourceContext()
@@ -341,141 +273,76 @@ width: _\$this.outerWidth() + _offset
 \t\t\t<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>
 \t\t\t<link href=\"https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap\" rel=\"stylesheet\">
 \t\t\t<link rel=\"stylesheet\" href=\"{{ asset('public/css/app.css') }}\">
+
+
+\t\t\t<style>
+
+\t\t\t\tfooter {
+\t\t\t\t\twidth: 100%;
+\t\t\t\t\theight: 1px;
+\t\t\t\t}
+\t\t\t\tbody {
+\t\t\t\t\tbackground: #1A1E23;
+\t\t\t\t}
+
+\t\t\t\t@import url(\"https://fonts.googleapis.com/css?family=Raleway:400,400i,700\");
+
+\t\t\t\t.nav {
+\t\t\t\t\tdisplay: flex;
+\t\t\t\t\tjustify-content: center
+\t\t\t\t}
+\t\t\t\t.navli {
+\t\t\t\t\tpadding: 10px;
+\t\t\t\t}
+
+\t\t\t\t.nava {
+\t\t\t\t\t--fill-color: #b18f1d;
+\t\t\t\t\tposition: relative;
+\t\t\t\t\tdisplay: block;
+\t\t\t\t\tpadding: 4px 0;
+\t\t\t\t\tfont: 700 2rem Raleway, sans-serif;
+\t\t\t\t\ttext-decoration: none;
+\t\t\t\t\ttext-transform: uppercase;
+\t\t\t\t\t-webkit-text-stroke: 2px var(--fill-color);
+\t\t\t\t\tbackground: linear-gradient(var(--fill-color) 0 100%) left / 0 no-repeat;
+\t\t\t\t\tcolor: transparent;
+\t\t\t\t\tbackground-clip: text;
+\t\t\t\t\ttransition: 0.5s linear;
+\t\t\t\t\ttext-align: justify;
+\t\t\t\t}
+\t\t\t\t.nava:hover {
+\t\t\t\t\tbackground-size: 100%;
+\t\t\t\t\tcolor: #dcb124;
+\t\t\t\t}
+\t\t\t</style>
+
 \t\t{% endblock %}
-
-\t\t<style>
-
-\t\t\tfooter {
-\t\t\t\twidth: 100%;
-\t\t\t\theight: 1px;
-\t\t\t}
-\t\t\thtml,
-\t\t\tbody,
-\t\t\tdiv {
-\t\t\t\tmargin: 0;
-\t\t\t\tpadding: 0;
-\t\t\t\tfont-family: \"Helvetica Neue\", Helvetica, sans-serif;
-\t\t\t}
-
-\t\t\t#menu {
-
-\t\t\t\tposition: relative;
-\t\t\t\ttext-align: center;
-\t\t\t\tmargin: 10px;
-\t\t\t}
-
-\t\t\t#menu-line {
-\t\t\t\tdisplay: block;
-\t\t\t\tposition: absolute;
-\t\t\t\tleft: 50%;
-\t\t\t\ttop: 25px;
-\t\t\t\twidth: 0;
-\t\t\t\theight: 5px;
-\t\t\t\tbackground-color: black;
-\t\t\t}
-
-\t\t\tul {
-\t\t\t\tz-index: 100;
-\t\t\t}
-
-\t\t\tul li {
-\t\t\t\tdisplay: inline-block;
-\t\t\t\tmargin-right: 30px;
-\t\t\t}
-
-\t\t\tul li a {
-\t\t\t\tdisplay: block;
-\t\t\t\tfont-size: 20px;
-\t\t\t\ttext-transform: uppercase;
-\t\t\t\ttext-decoration: none;
-\t\t\t\tcolor: black;
-\t\t\t}
-\t\t</style>
 
 \t\t{% block javascripts %}
 \t\t\t{{ encore_entry_script_tags('app') }}
 
 \t\t{% endblock %}
-\t</head>
-\t<body>
-\t\t<div id=\"menu\">
-\t\t\t<ul id=\"menu-list\">
-\t\t\t\t<li>
-\t\t\t\t\t<a href=\"{{path('app_homepage') }}\">CyberCom</a>
-\t\t\t\t</li>
-\t\t\t\t<li>
-\t\t\t\t\t<a href=\"{{path('app_utilisateur') }}\">Mon compte</a>
-\t\t\t\t</li>
-\t\t\t\t<li>
-\t\t\t\t\t<a href=\"{{path('app_login') }}\">Connexion</a>
-\t\t\t\t</li>
-\t\t\t</ul>
-\t\t\t<div id=\"menu-line\"></div>
-\t\t</div>
 
 
-\t\t<script>
-
-\t\t\t\$(function () {
-
-var currentIndex = 0;
-var _offset = 10;
-
-var \$menuLi = \$(\"#menu-list li\");
-var \$line = \$(\"#menu-line\");
-
-\$menuLi.on(\"click\", function () {
-
-var _\$this = \$(this);
-
-TweenMax.killTweensOf(\$line);
-
-if (_\$this.index() > currentIndex) {
-
-TweenMax.to(\$line, 0.5, {
-css: {
-width: (_\$this.position().left + _\$this.outerWidth()) - \$line.position().left + _offset / 2
-},
-onComplete: function () {
-currentIndex = _\$this.index();
-TweenMax.to(\$line, 0.5, {
-css: {
-left: _\$this.position().left - _offset / 2,
-width: _\$this.outerWidth() + _offset
-}
-})
-}
-});
-
-} else {
-
-TweenMax.to(\$line, 0.5, {
-css: {
-left: _\$this.position().left - _offset / 2,
-width: (\$line.position().left + \$line.outerWidth()) - _\$this.position().left + _offset / 2
-},
-onComplete: function () {
-currentIndex = _\$this.index();
-TweenMax.to(\$line, 0.5, {
-css: {
-width: _\$this.outerWidth() + _offset
-}
-})
-}
-});
-
-}
-
-});
-
-});
-\t\t</script>
+\t\t<ul class=\"nav\">
+\t\t\t<li class=\"navli\">
+\t\t\t\t<a class=\"nava\" href=\"{{path('app_homepage') }}\">
+\t\t\t\t\tCyberCom
+\t\t\t\t</a>
+\t\t\t</li>
+\t\t\t<li class=\"navli\">
+\t\t\t\t<a class=\"nava\" href=\"{{path('app_utilisateur') }}\">
+\t\t\t\t\tMon compte
+\t\t\t\t</a>
+\t\t\t</li>
+\t\t\t<li class=\"navli\">
+\t\t\t\t<a class=\"nava\" href=\"{{path('app_login') }}\">
+\t\t\t\t\tConnexion</a>
+\t\t\t</li>
+\t\t</ul>
 
 
-\t\t{% block body %}{% endblock %}
-
-\t\t<!-- Footer -->
-\t\t<div class=\"container mt-5\">
+\t\t{% block body %}{% endblock %}<!-- Footer --><div class=\"container mt-5\">
 \t\t\t<footer class=\"d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top\">
 \t\t\t\t<div class=\"col-md-4 d-flex align-items-center\">
 \t\t\t\t\t<span class=\"me-1\" style=\"color: red;\">
@@ -486,10 +353,7 @@ width: _\$this.outerWidth() + _offset
 
 
 \t\t\t</footer>
-\t\t</div>
-\t\t<!-- End Footer -->
-
-\t</body>
+\t\t</div><!-- End Footer --></head>
 </html>
 ", "base.html.twig", "/Users/leadrouet/Desktop/ENSC/2A/S8/P2i/Cyberscope/templates/base.html.twig");
     }

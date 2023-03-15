@@ -166,7 +166,6 @@ class __TwigTemplate_29903d618d2b013fcae3d0121a74dc0a extends Template
 \t\t\ttransform: rotate(55deg) scale(1);
 \t\t}
 
-
 \t\tinput {
 \t\t\tposition: absolute;
 \t\t\tvisibility: hidden;
@@ -196,7 +195,7 @@ class __TwigTemplate_29903d618d2b013fcae3d0121a74dc0a extends Template
 
 \t\t<div class=\"btn-block\">
 \t\t\t<button class=\"button-add\" onclick=\"window.location.href = '";
-        // line 131
+        // line 130
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_formPost");
         echo "'\">Nouveau post</button>
 \t\t</div>
@@ -304,7 +303,7 @@ class __TwigTemplate_29903d618d2b013fcae3d0121a74dc0a extends Template
 
     public function getDebugInfo()
     {
-        return array (  200 => 131,  74 => 7,  67 => 6,  53 => 3,  36 => 1,);
+        return array (  199 => 130,  74 => 7,  67 => 6,  53 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -409,7 +408,6 @@ class __TwigTemplate_29903d618d2b013fcae3d0121a74dc0a extends Template
 \t\tinput:checked + .react i:after {
 \t\t\ttransform: rotate(55deg) scale(1);
 \t\t}
-
 
 \t\tinput {
 \t\t\tposition: absolute;

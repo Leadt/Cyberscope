@@ -19,141 +19,76 @@
 			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 			<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
 			<link rel="stylesheet" href="{{ asset('public/css/app.css') }}">
+
+
+			<style>
+
+				footer {
+					width: 100%;
+					height: 1px;
+				}
+				body {
+					background: #1A1E23;
+				}
+
+				@import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+
+				.nav {
+					display: flex;
+					justify-content: center
+				}
+				.navli {
+					padding: 10px;
+				}
+
+				.nava {
+					--fill-color: #b18f1d;
+					position: relative;
+					display: block;
+					padding: 4px 0;
+					font: 700 2rem Raleway, sans-serif;
+					text-decoration: none;
+					text-transform: uppercase;
+					-webkit-text-stroke: 2px var(--fill-color);
+					background: linear-gradient(var(--fill-color) 0 100%) left / 0 no-repeat;
+					color: transparent;
+					background-clip: text;
+					transition: 0.5s linear;
+					text-align: justify;
+				}
+				.nava:hover {
+					background-size: 100%;
+					color: #dcb124;
+				}
+			</style>
+
 		{% endblock %}
-
-		<style>
-
-			footer {
-				width: 100%;
-				height: 1px;
-			}
-			html,
-			body,
-			div {
-				margin: 0;
-				padding: 0;
-				font-family: "Helvetica Neue", Helvetica, sans-serif;
-			}
-
-			#menu {
-
-				position: relative;
-				text-align: center;
-				margin: 10px;
-			}
-
-			#menu-line {
-				display: block;
-				position: absolute;
-				left: 50%;
-				top: 25px;
-				width: 0;
-				height: 5px;
-				background-color: black;
-			}
-
-			ul {
-				z-index: 100;
-			}
-
-			ul li {
-				display: inline-block;
-				margin-right: 30px;
-			}
-
-			ul li a {
-				display: block;
-				font-size: 20px;
-				text-transform: uppercase;
-				text-decoration: none;
-				color: black;
-			}
-		</style>
 
 		{% block javascripts %}
 			{{ encore_entry_script_tags('app') }}
 
 		{% endblock %}
-	</head>
-	<body>
-		<div id="menu">
-			<ul id="menu-list">
-				<li>
-					<a href="{{path('app_homepage') }}">CyberCom</a>
-				</li>
-				<li>
-					<a href="{{path('app_utilisateur') }}">Mon compte</a>
-				</li>
-				<li>
-					<a href="{{path('app_login') }}">Connexion</a>
-				</li>
-			</ul>
-			<div id="menu-line"></div>
-		</div>
 
 
-		<script>
-
-			$(function () {
-
-var currentIndex = 0;
-var _offset = 10;
-
-var $menuLi = $("#menu-list li");
-var $line = $("#menu-line");
-
-$menuLi.on("click", function () {
-
-var _$this = $(this);
-
-TweenMax.killTweensOf($line);
-
-if (_$this.index() > currentIndex) {
-
-TweenMax.to($line, 0.5, {
-css: {
-width: (_$this.position().left + _$this.outerWidth()) - $line.position().left + _offset / 2
-},
-onComplete: function () {
-currentIndex = _$this.index();
-TweenMax.to($line, 0.5, {
-css: {
-left: _$this.position().left - _offset / 2,
-width: _$this.outerWidth() + _offset
-}
-})
-}
-});
-
-} else {
-
-TweenMax.to($line, 0.5, {
-css: {
-left: _$this.position().left - _offset / 2,
-width: ($line.position().left + $line.outerWidth()) - _$this.position().left + _offset / 2
-},
-onComplete: function () {
-currentIndex = _$this.index();
-TweenMax.to($line, 0.5, {
-css: {
-width: _$this.outerWidth() + _offset
-}
-})
-}
-});
-
-}
-
-});
-
-});
-		</script>
+		<ul class="nav">
+			<li class="navli">
+				<a class="nava" href="{{path('app_homepage') }}">
+					CyberCom
+				</a>
+			</li>
+			<li class="navli">
+				<a class="nava" href="{{path('app_utilisateur') }}">
+					Mon compte
+				</a>
+			</li>
+			<li class="navli">
+				<a class="nava" href="{{path('app_login') }}">
+					Connexion</a>
+			</li>
+		</ul>
 
 
-		{% block body %}{% endblock %}
-
-		<!-- Footer -->
-		<div class="container mt-5">
+		{% block body %}{% endblock %}<!-- Footer --><div class="container mt-5">
 			<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
 				<div class="col-md-4 d-flex align-items-center">
 					<span class="me-1" style="color: red;">
@@ -164,8 +99,5 @@ width: _$this.outerWidth() + _offset
 
 
 			</footer>
-		</div>
-		<!-- End Footer -->
-
-	</body>
+		</div><!-- End Footer --></head>
 </html>
