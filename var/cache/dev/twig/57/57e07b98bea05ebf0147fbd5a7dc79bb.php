@@ -172,10 +172,10 @@ class __TwigTemplate_01a3cbda6305fe4827d1bd4ea5328f16 extends Template
 
 \t\t\t\t.nav {
 \t\t\t\t\tdisplay: flex;
-\t\t\t\t\tjustify-content: center
+\t\t\t\t\tjustify-content: center;
 \t\t\t\t}
 \t\t\t\t.navli {
-\t\t\t\t\tpadding: 10px;
+\t\t\t\t\tpadding: 15px;
 \t\t\t\t}
 
 \t\t\t\t.nava {
@@ -289,10 +289,10 @@ class __TwigTemplate_01a3cbda6305fe4827d1bd4ea5328f16 extends Template
 
 \t\t\t\t.nav {
 \t\t\t\t\tdisplay: flex;
-\t\t\t\t\tjustify-content: center
+\t\t\t\t\tjustify-content: center;
 \t\t\t\t}
 \t\t\t\t.navli {
-\t\t\t\t\tpadding: 10px;
+\t\t\t\t\tpadding: 15px;
 \t\t\t\t}
 
 \t\t\t\t.nava {

@@ -71,18 +71,7 @@ class __TwigTemplate_f37b870f9b7db9b5bde0350786b9d3e5 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 7
-        echo "\t<style>
-\t\t.example-wrapper {
-\t\t\tmargin: 1em auto;
-\t\t\tmax-width: 800px;
-\t\t\twidth: 95%;
-\t\t\tfont: 18px / 1.5 sans-serif;
-\t\t}
-\t\t.example-wrapper code {
-\t\t\tbackground: #F5F5F5;
-\t\t\tpadding: 2px 6px;
-\t\t}
-\t</style>
+        echo "\t<style></style>
 
 \t<link rel=\"stylesheet\" href=\"https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css\">
 \t<link rel=\"stylesheet\" href=\"https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css\">
@@ -110,7 +99,7 @@ class __TwigTemplate_f37b870f9b7db9b5bde0350786b9d3e5 extends Template
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t<div class=\"w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center\">
 \t\t\t\t\t\t\t\t<div class=\"py-6 px-3 mt-32 sm:mt-0\">
-\t\t\t\t\t\t\t\t\t<button class=\"bg-pink-500 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150\" type=\"button\">
+\t\t\t\t\t\t\t\t\t<button class=\"bg-warning uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150\" type=\"button\">
 \t\t\t\t\t\t\t\t\t\tAjouter
 \t\t\t\t\t\t\t\t\t</button>
 \t\t\t\t\t\t\t\t</div>
@@ -189,18 +178,7 @@ class __TwigTemplate_f37b870f9b7db9b5bde0350786b9d3e5 extends Template
 {% endblock %}
 
 {% block body %}
-\t<style>
-\t\t.example-wrapper {
-\t\t\tmargin: 1em auto;
-\t\t\tmax-width: 800px;
-\t\t\twidth: 95%;
-\t\t\tfont: 18px / 1.5 sans-serif;
-\t\t}
-\t\t.example-wrapper code {
-\t\t\tbackground: #F5F5F5;
-\t\t\tpadding: 2px 6px;
-\t\t}
-\t</style>
+\t<style></style>
 
 \t<link rel=\"stylesheet\" href=\"https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css\">
 \t<link rel=\"stylesheet\" href=\"https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css\">
@@ -228,7 +206,7 @@ class __TwigTemplate_f37b870f9b7db9b5bde0350786b9d3e5 extends Template
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t<div class=\"w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center\">
 \t\t\t\t\t\t\t\t<div class=\"py-6 px-3 mt-32 sm:mt-0\">
-\t\t\t\t\t\t\t\t\t<button class=\"bg-pink-500 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150\" type=\"button\">
+\t\t\t\t\t\t\t\t\t<button class=\"bg-warning uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150\" type=\"button\">
 \t\t\t\t\t\t\t\t\t\tAjouter
 \t\t\t\t\t\t\t\t\t</button>
 \t\t\t\t\t\t\t\t</div>

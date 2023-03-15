@@ -18,15 +18,9 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('pseudo_user')
-            ->add('agreeTerms', CheckboxType::class, [
-                'mapped' => false,
-                'constraints' => [
-                    new IsTrue([
-                        'message' => 'You should agree to our terms.',
-                    ]),
-                ],
-            ])
-            ->add('plainPassword', PasswordType::class, [
+            ->add('nom_user')
+            ->add('prenom_user')
+            ->add('mdp_user', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,

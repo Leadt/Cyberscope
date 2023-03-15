@@ -100,7 +100,7 @@ class __TwigTemplate_cbc99e712a2f0c4108c7fc6328bc57f3 extends Template
 \t\t.main-block {
 \t\t\tmax-width: 80%;
 \t\t\tmin-height: 260px;
-\t\t\tpadding: 10px 0;
+\t\t\tpadding: 20px 0;
 \t\t\tmargin: auto;
 \t\t\tborder-radius: 5px;
 \t\t\tborder: solid 1px #ccc;
@@ -110,10 +110,7 @@ class __TwigTemplate_cbc99e712a2f0c4108c7fc6328bc57f3 extends Template
 \t\tform {
 \t\t\tmargin: 0 30px;
 \t\t}
-\t\tlabel#icon {
-\t\t\tmargin: 0;
-\t\t\tborder-radius: 5px 0 0 5px;
-\t\t}
+
 \t\ttextarea {
 \t\t\trows: 1000;
 \t\t\theight: 80px;
@@ -124,10 +121,8 @@ class __TwigTemplate_cbc99e712a2f0c4108c7fc6328bc57f3 extends Template
 \t\t\tborder: solid 1px #cbc9c9;
 \t\t\tbox-shadow: 1px 2px 5px rgba(0, 0, 0, 0.09);
 \t\t\tbackground: #fff;
-
 \t\t}
-\t\tinput[type=text],
-\t\tinput[type=password] {
+\t\tinput[type=text] {
 \t\t\twidth: 100%;
 \t\t\theight: 36px;
 \t\t\tmargin: 13px 0 0 -5px;
@@ -137,41 +132,45 @@ class __TwigTemplate_cbc99e712a2f0c4108c7fc6328bc57f3 extends Template
 \t\t\tbox-shadow: 1px 2px 5px rgba(0, 0, 0, 0.09);
 \t\t\tbackground: #fff;
 \t\t}
-\t\tinput[type=password] {
-\t\t\tmargin-bottom: 15px;
-\t\t}
-\t\t#icon {
-\t\t\tdisplay: inline-block;
-\t\t\tpadding: 9.3px 15px;
-\t\t\tbox-shadow: 1px 2px 5px rgba(0, 0, 0, 0.09);
-\t\t\tbackground: #dcb124;
-\t\t\tcolor: #fff;
-\t\t\ttext-align: center;
-\t\t}
-\t\t.btn-block {
+\t\t.block {
 \t\t\tmargin-top: 10px;
 \t\t\ttext-align: center;
 \t\t}
-\t\t.button-create {
+\t\t.button-create,
+\t\t.a-delete {
 \t\t\twidth: 100%;
-\t\t\tpadding: 10px 0;
 \t\t\tmargin: 10px auto;
 \t\t\tborder-radius: 5px;
 \t\t\tborder: none;
-\t\t\tbackground: #dcb124;
 \t\t\tfont-size: 14px;
 \t\t\tfont-weight: 600;
 \t\t\tcolor: #fff;
 \t\t}
+\t\t.button-create {
+\t\t\tbackground: #dcb124;
+\t\t\tpadding: 10px 0;
+\t\t}
+
 \t\tbutton:hover {
 \t\t\tbackground: #b18f1d;
+\t\t}
+\t\t.a-delete {
+\t\t\tbackground: #B22222;
+\t\t\ttext-decoration: none;
+\t\t\tpadding: 10px 80px;
+\t\t}
+\t\t.a-delete:hover {
+\t\t\tcolor: white;
+\t\t\ttext-decoration: none;
+\t\t\tbackground: #8B0000;
+
 \t\t}
 \t</style>
 
 </form></br><div class=\"main-block\">
 <h1>Ajout post</h1>
 <form action=\"";
-        // line 106
+        // line 105
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_homepage");
         echo "\" method=\"post\">
 
@@ -186,12 +185,17 @@ Ajouter une illustration
 
 <hr>
 
-<div class=\"btn-block\">
+<div class=\"block\">
 \t<button class=\"button-create\" type=\"submit\" href=\"";
-        // line 120
+        // line 119
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_homepage");
         echo "\">Créer</button>
-</div></form></div>";
+
+</div></form><div class=\"block\">
+<a class=\"a-delete\" href=\"";
+        // line 122
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_homepage");
+        echo "\">Annuler</a></div></div>";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -209,7 +213,7 @@ Ajouter une illustration
 
     public function getDebugInfo()
     {
-        return array (  192 => 120,  175 => 106,  74 => 7,  67 => 6,  53 => 3,  36 => 1,);
+        return array (  197 => 122,  191 => 119,  174 => 105,  74 => 7,  67 => 6,  53 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -249,7 +253,7 @@ Ajouter une illustration
 \t\t.main-block {
 \t\t\tmax-width: 80%;
 \t\t\tmin-height: 260px;
-\t\t\tpadding: 10px 0;
+\t\t\tpadding: 20px 0;
 \t\t\tmargin: auto;
 \t\t\tborder-radius: 5px;
 \t\t\tborder: solid 1px #ccc;
@@ -259,10 +263,7 @@ Ajouter une illustration
 \t\tform {
 \t\t\tmargin: 0 30px;
 \t\t}
-\t\tlabel#icon {
-\t\t\tmargin: 0;
-\t\t\tborder-radius: 5px 0 0 5px;
-\t\t}
+
 \t\ttextarea {
 \t\t\trows: 1000;
 \t\t\theight: 80px;
@@ -273,10 +274,8 @@ Ajouter une illustration
 \t\t\tborder: solid 1px #cbc9c9;
 \t\t\tbox-shadow: 1px 2px 5px rgba(0, 0, 0, 0.09);
 \t\t\tbackground: #fff;
-
 \t\t}
-\t\tinput[type=text],
-\t\tinput[type=password] {
+\t\tinput[type=text] {
 \t\t\twidth: 100%;
 \t\t\theight: 36px;
 \t\t\tmargin: 13px 0 0 -5px;
@@ -286,34 +285,38 @@ Ajouter une illustration
 \t\t\tbox-shadow: 1px 2px 5px rgba(0, 0, 0, 0.09);
 \t\t\tbackground: #fff;
 \t\t}
-\t\tinput[type=password] {
-\t\t\tmargin-bottom: 15px;
-\t\t}
-\t\t#icon {
-\t\t\tdisplay: inline-block;
-\t\t\tpadding: 9.3px 15px;
-\t\t\tbox-shadow: 1px 2px 5px rgba(0, 0, 0, 0.09);
-\t\t\tbackground: #dcb124;
-\t\t\tcolor: #fff;
-\t\t\ttext-align: center;
-\t\t}
-\t\t.btn-block {
+\t\t.block {
 \t\t\tmargin-top: 10px;
 \t\t\ttext-align: center;
 \t\t}
-\t\t.button-create {
+\t\t.button-create,
+\t\t.a-delete {
 \t\t\twidth: 100%;
-\t\t\tpadding: 10px 0;
 \t\t\tmargin: 10px auto;
 \t\t\tborder-radius: 5px;
 \t\t\tborder: none;
-\t\t\tbackground: #dcb124;
 \t\t\tfont-size: 14px;
 \t\t\tfont-weight: 600;
 \t\t\tcolor: #fff;
 \t\t}
+\t\t.button-create {
+\t\t\tbackground: #dcb124;
+\t\t\tpadding: 10px 0;
+\t\t}
+
 \t\tbutton:hover {
 \t\t\tbackground: #b18f1d;
+\t\t}
+\t\t.a-delete {
+\t\t\tbackground: #B22222;
+\t\t\ttext-decoration: none;
+\t\t\tpadding: 10px 80px;
+\t\t}
+\t\t.a-delete:hover {
+\t\t\tcolor: white;
+\t\t\ttext-decoration: none;
+\t\t\tbackground: #8B0000;
+
 \t\t}
 \t</style>
 
@@ -332,9 +335,11 @@ Ajouter une illustration
 
 <hr>
 
-<div class=\"btn-block\">
+<div class=\"block\">
 \t<button class=\"button-create\" type=\"submit\" href=\"{{path('app_homepage')}}\">Créer</button>
-</div></form></div>{% endblock %}
+
+</div></form><div class=\"block\">
+<a class=\"a-delete\" href=\"{{path('app_homepage')}}\">Annuler</a></div></div>{% endblock %}
 ", "post/formPost.html.twig", "/Users/leadrouet/Desktop/ENSC/2A/S8/P2i/Cyberscope/templates/post/formPost.html.twig");
     }
 }
