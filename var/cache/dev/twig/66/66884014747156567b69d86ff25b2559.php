@@ -154,57 +154,47 @@ class __TwigTemplate_0ac10fabcd0c258abcd53b6e992929a2 extends Template
 \t\t\tbackground: #b18f1d;
 \t\t}
 \t</style>
-
-
 </form></br><div class=\"main-block\">
 <h1>Inscription</h1>
 <form action=\"";
-        // line 94
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
+        // line 92
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
         echo "\" method=\"post\">
 
 \t<hr>
 \t<label id=\"icon\" for=\"name\">
 \t\t<i class=\"fas fa-user\"></i>
 \t</label>
-\t<input type=\"text\" name=\"pseudo\" id=\"pseudo\" placeholder=\"Pseudo\" required/>
+\t<input type=\"text\" name=\"pseudo_user\" id=\"pseudo_user\" placeholder=\"Pseudo\" required/>
 \t<label id=\"icon\" for=\"name\">
 \t\t<i class=\"fas fa-user\"></i>
 \t</label>
-\t<input type=\"text\" name=\"nom\" id=\"nom\" placeholder=\"Nom\" required/>
+\t<input type=\"text\" name=\"nom_user\" id=\"no_userm\" placeholder=\"Nom\" required/>
 \t<label id=\"icon\" for=\"name\">
 \t\t<i class=\"fas fa-user\"></i>
 \t</label>
-\t<input type=\"text\" name=\"prenom\" id=\"prenom\" placeholder=\"Prénom\" required/>
+\t<input type=\"text\" name=\"prenom_user\" id=\"prenom_user\" placeholder=\"Prénom\" required/>
 
 \t<label id=\"icon\" for=\"name\">
 \t\t<i class=\"fas fa-unlock-alt\"></i>
 \t</label>
-\t<input type=\"password\" name=\"mdp\" id=\"mdp\" placeholder=\"Mot de passe\" required/>
+\t<input type=\"password\" name=\"mdp_user\" id=\"mdp_user\" placeholder=\"Mot de passe\" required/>
 
 \t<label id=\"icon\" for=\"photo\">
 \t\t<i class=\"fa fa-user-circle\"></i>
 \t</label>
 \tPhoto de profil
 \t<br>
-\t<input type=\"file\" name=\"photo\" id=\"photo\" placeholder=\"Photo de profil\" accept=\".png,.jpeg,.jpg,.svg\"/>
+\t<input type=\"file\" name=\"photo_user\" id=\"photo_user\" placeholder=\"Photo de profil\" accept=\".png,.jpeg,.jpg,.svg\"/>
 
 \t<hr>
 \t<div class=\"btn-block\">
 \t\t<button class=\"button-sign\" type=\"submit\" href=\"";
-        // line 124
+        // line 122
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_homepage");
         echo "\">S'inscrire</button>
 \t</div>
 </form></div>";
-        // line 126
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 126, $this->source); })()), 'form_start');
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 126, $this->source); })()), "pseudo_user", [], "any", false, false, false, 126), 'row');
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 126, $this->source); })()), "plainPassword", [], "any", false, false, false, 126), 'row', ["label" => "Password"]);
-        // line 128
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 128, $this->source); })()), "agreeTerms", [], "any", false, false, false, 128), 'row');
-        echo "<button type=\"submit\" class=\"btn\">S'inscrire</button>";
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["registrationForm"]) || array_key_exists("registrationForm", $context) ? $context["registrationForm"] : (function () { throw new RuntimeError('Variable "registrationForm" does not exist.', 128, $this->source); })()), 'form_end');
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -222,7 +212,7 @@ class __TwigTemplate_0ac10fabcd0c258abcd53b6e992929a2 extends Template
 
     public function getDebugInfo()
     {
-        return array (  205 => 128,  201 => 126,  196 => 124,  163 => 94,  74 => 7,  67 => 6,  53 => 3,  36 => 1,);
+        return array (  194 => 122,  161 => 92,  74 => 7,  67 => 6,  53 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -316,45 +306,41 @@ class __TwigTemplate_0ac10fabcd0c258abcd53b6e992929a2 extends Template
 \t\t\tbackground: #b18f1d;
 \t\t}
 \t</style>
-
-
 </form></br><div class=\"main-block\">
 <h1>Inscription</h1>
-<form action=\"{{ path('app_login') }}\" method=\"post\">
+<form action=\"{{ path('app_register') }}\" method=\"post\">
 
 \t<hr>
 \t<label id=\"icon\" for=\"name\">
 \t\t<i class=\"fas fa-user\"></i>
 \t</label>
-\t<input type=\"text\" name=\"pseudo\" id=\"pseudo\" placeholder=\"Pseudo\" required/>
+\t<input type=\"text\" name=\"pseudo_user\" id=\"pseudo_user\" placeholder=\"Pseudo\" required/>
 \t<label id=\"icon\" for=\"name\">
 \t\t<i class=\"fas fa-user\"></i>
 \t</label>
-\t<input type=\"text\" name=\"nom\" id=\"nom\" placeholder=\"Nom\" required/>
+\t<input type=\"text\" name=\"nom_user\" id=\"no_userm\" placeholder=\"Nom\" required/>
 \t<label id=\"icon\" for=\"name\">
 \t\t<i class=\"fas fa-user\"></i>
 \t</label>
-\t<input type=\"text\" name=\"prenom\" id=\"prenom\" placeholder=\"Prénom\" required/>
+\t<input type=\"text\" name=\"prenom_user\" id=\"prenom_user\" placeholder=\"Prénom\" required/>
 
 \t<label id=\"icon\" for=\"name\">
 \t\t<i class=\"fas fa-unlock-alt\"></i>
 \t</label>
-\t<input type=\"password\" name=\"mdp\" id=\"mdp\" placeholder=\"Mot de passe\" required/>
+\t<input type=\"password\" name=\"mdp_user\" id=\"mdp_user\" placeholder=\"Mot de passe\" required/>
 
 \t<label id=\"icon\" for=\"photo\">
 \t\t<i class=\"fa fa-user-circle\"></i>
 \t</label>
 \tPhoto de profil
 \t<br>
-\t<input type=\"file\" name=\"photo\" id=\"photo\" placeholder=\"Photo de profil\" accept=\".png,.jpeg,.jpg,.svg\"/>
+\t<input type=\"file\" name=\"photo_user\" id=\"photo_user\" placeholder=\"Photo de profil\" accept=\".png,.jpeg,.jpg,.svg\"/>
 
 \t<hr>
 \t<div class=\"btn-block\">
 \t\t<button class=\"button-sign\" type=\"submit\" href=\"{{path('app_homepage')}}\">S'inscrire</button>
 \t</div>
-</form></div>{{ form_start(registrationForm) }}{{ form_row(registrationForm.pseudo_user) }}{{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}{{ form_row(registrationForm.agreeTerms) }}<button type=\"submit\" class=\"btn\">S'inscrire</button>{{ form_end(registrationForm) }}{% endblock %}
+</form></div>{% endblock %}
 ", "inscription/index.html.twig", "/Users/leadrouet/Desktop/ENSC/2A/S8/P2i/Cyberscope/templates/inscription/index.html.twig");
     }
 }

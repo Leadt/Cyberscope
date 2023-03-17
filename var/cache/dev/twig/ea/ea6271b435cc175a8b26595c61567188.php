@@ -184,40 +184,41 @@ class __TwigTemplate_5be331d03ae100f81f1613d1dfcc3465 extends Template
         }
         // line 103
         echo "
-
-</form></br><div class=\"main-block\">
-<h1>Connexion</h1>
-<form action=\"";
-        // line 107
+\t<div class=\"main-block\">
+\t\t<h1>Connexion</h1>
+\t\t<form action=\"";
+        // line 106
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
         echo "\" method=\"post\">
 
-\t<hr>
-\t<label id=\"icon\" for=\"name\">
-\t\t<i class=\"fas fa-user\"></i>
-\t</label>
-\t<input type=\"text\" name=\"pseudo\" id=\"pseudo\" placeholder=\"Pseudo\" value=\"";
-        // line 113
-        echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 113, $this->source); })()), "html", null, true);
+\t\t\t<hr>
+\t\t\t<label id=\"icon\" for=\"name\">
+\t\t\t\t<i class=\"fas fa-user\"></i>
+\t\t\t</label>
+\t\t\t<input type=\"text\" name=\"pseudo\" id=\"pseudo\" placeholder=\"Pseudo\" value=\"";
+        // line 112
+        echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 112, $this->source); })()), "html", null, true);
         echo "\" required/>
-\t<label id=\"icon\" for=\"name\">
-\t\t<i class=\"fas fa-unlock-alt\"></i>
-\t</label>
-\t<input type=\"password\" name=\"mdp\" id=\"mdp\" placeholder=\"Mot de passe\" required/>
-\t<hr>
-\t<div class=\"btn-block\">
-\t\t<p>
-\t\t\t<a href=\"";
-        // line 121
+\t\t\t<label id=\"icon\" for=\"name\">
+\t\t\t\t<i class=\"fas fa-unlock-alt\"></i>
+\t\t\t</label>
+\t\t\t<input type=\"password\" name=\"mdp\" id=\"mdp\" placeholder=\"Mot de passe\" required/>
+\t\t\t<hr>
+\t\t\t<div class=\"btn-block\">
+\t\t\t\t<p>
+\t\t\t\t\t<a href=\"";
+        // line 120
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_register");
         echo "\">S'inscrire</a>
-\t\t</p>
-\t\t<button class=\"button-login\" type=\"submit\" href=\"";
-        // line 123
+\t\t\t\t</p>
+\t\t\t\t<button class=\"button-login\" type=\"submit\" href=\"";
+        // line 122
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_homepage");
         echo "\">Se connecter</button>
+\t\t\t</div>
+\t\t</form>
 \t</div>
-</form></div>";
+";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -235,7 +236,7 @@ class __TwigTemplate_5be331d03ae100f81f1613d1dfcc3465 extends Template
 
     public function getDebugInfo()
     {
-        return array (  217 => 123,  212 => 121,  201 => 113,  192 => 107,  186 => 103,  180 => 100,  176 => 99,  172 => 97,  170 => 96,  167 => 95,  163 => 93,  161 => 92,  74 => 7,  67 => 6,  53 => 3,  36 => 1,);
+        return array (  216 => 122,  211 => 120,  200 => 112,  191 => 106,  186 => 103,  180 => 100,  176 => 99,  172 => 97,  170 => 96,  167 => 95,  163 => 93,  161 => 92,  74 => 7,  67 => 6,  53 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -343,28 +344,29 @@ class __TwigTemplate_5be331d03ae100f81f1613d1dfcc3465 extends Template
 \t\t</div>
 \t{% endif %}
 
+\t<div class=\"main-block\">
+\t\t<h1>Connexion</h1>
+\t\t<form action=\"{{ path('app_login') }}\" method=\"post\">
 
-</form></br><div class=\"main-block\">
-<h1>Connexion</h1>
-<form action=\"{{ path('app_login') }}\" method=\"post\">
-
-\t<hr>
-\t<label id=\"icon\" for=\"name\">
-\t\t<i class=\"fas fa-user\"></i>
-\t</label>
-\t<input type=\"text\" name=\"pseudo\" id=\"pseudo\" placeholder=\"Pseudo\" value=\"{{ last_username }}\" required/>
-\t<label id=\"icon\" for=\"name\">
-\t\t<i class=\"fas fa-unlock-alt\"></i>
-\t</label>
-\t<input type=\"password\" name=\"mdp\" id=\"mdp\" placeholder=\"Mot de passe\" required/>
-\t<hr>
-\t<div class=\"btn-block\">
-\t\t<p>
-\t\t\t<a href=\"{{path('app_register')}}\">S'inscrire</a>
-\t\t</p>
-\t\t<button class=\"button-login\" type=\"submit\" href=\"{{path('app_homepage')}}\">Se connecter</button>
+\t\t\t<hr>
+\t\t\t<label id=\"icon\" for=\"name\">
+\t\t\t\t<i class=\"fas fa-user\"></i>
+\t\t\t</label>
+\t\t\t<input type=\"text\" name=\"pseudo\" id=\"pseudo\" placeholder=\"Pseudo\" value=\"{{ last_username }}\" required/>
+\t\t\t<label id=\"icon\" for=\"name\">
+\t\t\t\t<i class=\"fas fa-unlock-alt\"></i>
+\t\t\t</label>
+\t\t\t<input type=\"password\" name=\"mdp\" id=\"mdp\" placeholder=\"Mot de passe\" required/>
+\t\t\t<hr>
+\t\t\t<div class=\"btn-block\">
+\t\t\t\t<p>
+\t\t\t\t\t<a href=\"{{path('app_register')}}\">S'inscrire</a>
+\t\t\t\t</p>
+\t\t\t\t<button class=\"button-login\" type=\"submit\" href=\"{{path('app_homepage')}}\">Se connecter</button>
+\t\t\t</div>
+\t\t</form>
 \t</div>
-</form></div>{% endblock %}
+{% endblock %}
 ", "connexion/index.html.twig", "/Users/leadrouet/Desktop/ENSC/2A/S8/P2i/Cyberscope/templates/connexion/index.html.twig");
     }
 }

@@ -42,3 +42,10 @@ navbarCollapse.classList.toggle('show');
 		font-family: "Montserrat", sans-serif;
 	}
 </style>
+
+
+Inscription
+{{ form_start(registrationForm) }}{{ form_row(registrationForm.pseudo_user) }}{{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}{{ form_row(registrationForm.agreeTerms) }}<button type="submit" class="btn">S'inscrire</button>
+{{ form_end(registrationForm) }}{% endblock %}

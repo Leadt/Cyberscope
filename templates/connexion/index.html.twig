@@ -101,25 +101,26 @@
 		</div>
 	{% endif %}
 
+	<div class="main-block">
+		<h1>Connexion</h1>
+		<form action="{{ path('app_login') }}" method="post">
 
-</form></br><div class="main-block">
-<h1>Connexion</h1>
-<form action="{{ path('app_login') }}" method="post">
-
-	<hr>
-	<label id="icon" for="name">
-		<i class="fas fa-user"></i>
-	</label>
-	<input type="text" name="pseudo" id="pseudo" placeholder="Pseudo" value="{{ last_username }}" required/>
-	<label id="icon" for="name">
-		<i class="fas fa-unlock-alt"></i>
-	</label>
-	<input type="password" name="mdp" id="mdp" placeholder="Mot de passe" required/>
-	<hr>
-	<div class="btn-block">
-		<p>
-			<a href="{{path('app_register')}}">S'inscrire</a>
-		</p>
-		<button class="button-login" type="submit" href="{{path('app_homepage')}}">Se connecter</button>
+			<hr>
+			<label id="icon" for="name">
+				<i class="fas fa-user"></i>
+			</label>
+			<input type="text" name="pseudo" id="pseudo" placeholder="Pseudo" value="{{ last_username }}" required/>
+			<label id="icon" for="name">
+				<i class="fas fa-unlock-alt"></i>
+			</label>
+			<input type="password" name="mdp" id="mdp" placeholder="Mot de passe" required/>
+			<hr>
+			<div class="btn-block">
+				<p>
+					<a href="{{path('app_register')}}">S'inscrire</a>
+				</p>
+				<button class="button-login" type="submit" href="{{path('app_homepage')}}">Se connecter</button>
+			</div>
+		</form>
 	</div>
-</form></div>{% endblock %}
+{% endblock %}

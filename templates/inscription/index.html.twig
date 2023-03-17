@@ -87,42 +87,38 @@
 			background: #b18f1d;
 		}
 	</style>
-
-
 </form></br><div class="main-block">
 <h1>Inscription</h1>
-<form action="{{ path('app_login') }}" method="post">
+<form action="{{ path('app_register') }}" method="post">
 
 	<hr>
 	<label id="icon" for="name">
 		<i class="fas fa-user"></i>
 	</label>
-	<input type="text" name="pseudo" id="pseudo" placeholder="Pseudo" required/>
+	<input type="text" name="pseudo_user" id="pseudo_user" placeholder="Pseudo" required/>
 	<label id="icon" for="name">
 		<i class="fas fa-user"></i>
 	</label>
-	<input type="text" name="nom" id="nom" placeholder="Nom" required/>
+	<input type="text" name="nom_user" id="no_userm" placeholder="Nom" required/>
 	<label id="icon" for="name">
 		<i class="fas fa-user"></i>
 	</label>
-	<input type="text" name="prenom" id="prenom" placeholder="Prénom" required/>
+	<input type="text" name="prenom_user" id="prenom_user" placeholder="Prénom" required/>
 
 	<label id="icon" for="name">
 		<i class="fas fa-unlock-alt"></i>
 	</label>
-	<input type="password" name="mdp" id="mdp" placeholder="Mot de passe" required/>
+	<input type="password" name="mdp_user" id="mdp_user" placeholder="Mot de passe" required/>
 
 	<label id="icon" for="photo">
 		<i class="fa fa-user-circle"></i>
 	</label>
 	Photo de profil
 	<br>
-	<input type="file" name="photo" id="photo" placeholder="Photo de profil" accept=".png,.jpeg,.jpg,.svg"/>
+	<input type="file" name="photo_user" id="photo_user" placeholder="Photo de profil" accept=".png,.jpeg,.jpg,.svg"/>
 
 	<hr>
 	<div class="btn-block">
 		<button class="button-sign" type="submit" href="{{path('app_homepage')}}">S'inscrire</button>
 	</div>
-</form></div>{{ form_start(registrationForm) }}{{ form_row(registrationForm.pseudo_user) }}{{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}{{ form_row(registrationForm.agreeTerms) }}<button type="submit" class="btn">S'inscrire</button>{{ form_end(registrationForm) }}{% endblock %}
+</form></div>{% endblock %}
