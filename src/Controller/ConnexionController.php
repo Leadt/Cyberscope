@@ -21,10 +21,10 @@ class ConnexionController extends AbstractController
         $error = $authenticationUtils->getLastAuthenticationError();
 
         // last username entered by the user
-        $lastUsername = $authenticationUtils->getLastUsername();
+        // $lastUsername = $authenticationUtils->getLastUsername();'last_username' => $lastUsername,
 
         return $this->render('connexion/index.html.twig', [
-            'last_username' => $lastUsername,
+
             'error'         => $error,
         ]);
     }
