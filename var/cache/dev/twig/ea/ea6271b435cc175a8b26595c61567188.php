@@ -195,10 +195,7 @@ class __TwigTemplate_5be331d03ae100f81f1613d1dfcc3465 extends Template
 \t\t\t<label id=\"icon\" for=\"name\">
 \t\t\t\t<i class=\"fas fa-user\"></i>
 \t\t\t</label>
-\t\t\t<input type=\"text\" name=\"pseudo\" id=\"pseudo\" placeholder=\"Pseudo\" value=\"";
-        // line 112
-        echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 112, $this->source); })()), "html", null, true);
-        echo "\" required/>
+\t\t\t<input type=\"text\" name=\"pseudo\" id=\"pseudo\" placeholder=\"Pseudo\" required/>
 \t\t\t<label id=\"icon\" for=\"name\">
 \t\t\t\t<i class=\"fas fa-unlock-alt\"></i>
 \t\t\t</label>
@@ -236,7 +233,7 @@ class __TwigTemplate_5be331d03ae100f81f1613d1dfcc3465 extends Template
 
     public function getDebugInfo()
     {
-        return array (  216 => 122,  211 => 120,  200 => 112,  191 => 106,  186 => 103,  180 => 100,  176 => 99,  172 => 97,  170 => 96,  167 => 95,  163 => 93,  161 => 92,  74 => 7,  67 => 6,  53 => 3,  36 => 1,);
+        return array (  213 => 122,  208 => 120,  191 => 106,  186 => 103,  180 => 100,  176 => 99,  172 => 97,  170 => 96,  167 => 95,  163 => 93,  161 => 92,  74 => 7,  67 => 6,  53 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -352,7 +349,7 @@ class __TwigTemplate_5be331d03ae100f81f1613d1dfcc3465 extends Template
 \t\t\t<label id=\"icon\" for=\"name\">
 \t\t\t\t<i class=\"fas fa-user\"></i>
 \t\t\t</label>
-\t\t\t<input type=\"text\" name=\"pseudo\" id=\"pseudo\" placeholder=\"Pseudo\" value=\"{{ last_username }}\" required/>
+\t\t\t<input type=\"text\" name=\"pseudo\" id=\"pseudo\" placeholder=\"Pseudo\" required/>
 \t\t\t<label id=\"icon\" for=\"name\">
 \t\t\t\t<i class=\"fas fa-unlock-alt\"></i>
 \t\t\t</label>
