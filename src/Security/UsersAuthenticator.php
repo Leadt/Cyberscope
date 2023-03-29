@@ -15,7 +15,7 @@ use Symfony\Component\Security\Http\Authenticator\Passport\Credentials\PasswordC
 use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
 
-class UtilisateurAuthenticator extends AbstractLoginFormAuthenticator
+class UsersAuthenticator extends AbstractLoginFormAuthenticator
 {
     use TargetPathTrait;
 
@@ -27,12 +27,12 @@ class UtilisateurAuthenticator extends AbstractLoginFormAuthenticator
 
     public function authenticate(Request $request): Passport
     {
-        $pseudoUser = $request->request->get('pseudo_user', '');
+        $username = $request->request->get('username', '');
 
-        $request->getSession()->set(Security::LAST_USERNAME, $pseudoUser);
+        $request->getSession()->set(Security::LAST_USERNAME, $username);
 
         return new Passport(
-            new UserBadge($pseudoUser),
+            new UserBadge($username),
             new PasswordCredentials($request->request->get('password', '')),
             [
                 new CsrfTokenBadge('authenticate', $request->request->get('_csrf_token')),
@@ -47,6 +47,8 @@ class UtilisateurAuthenticator extends AbstractLoginFormAuthenticator
         }
 
         // For example:
+        // return new RedirectResponse($this->urlGenerator->generate('some_route'));
+        //throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
         return new RedirectResponse($this->urlGenerator->generate('app_homepage'));
     }
 

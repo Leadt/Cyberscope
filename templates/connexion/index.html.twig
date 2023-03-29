@@ -101,26 +101,44 @@
 		</div>
 	{% endif %}
 
-	<div class="main-block">
-		<h1>Connexion</h1>
+	<div
+		class="main-block">
+		{#<h1>Connexion</h1>
+														<form method="post">
+												
+															<hr>
+															<label id="icon" for="name">
+																<i class="fas fa-user"></i>
+															</label>
+															<input type="text" name="pseudo_user" id="pseudo_user" placeholder="Pseudo" required/>
+															<label id="icon" for="name">
+																<i class="fas fa-unlock-alt"></i>
+															</label>
+															<input type="password" name="password" id="password" placeholder="Mot de passe" required/>
+															<hr>
+															<div class="btn-block">
+																<p>
+																	<a href="{{path('app_register')}}">S'inscrire</a>
+																</p>
+																<button class="button-login" type="submit">Se connecter</button>
+															</div>
+												
+												
+														</form>#}
+
 		<form method="post">
 
-			<hr>
-			<label id="icon" for="name">
-				<i class="fas fa-user"></i>
-			</label>
-			<input type="text" name="pseudo_user" id="pseudo_user" placeholder="Pseudo" required/>
-			<label id="icon" for="name">
-				<i class="fas fa-unlock-alt"></i>
-			</label>
-			<input type="password" name="password" id="password" placeholder="Mot de passe" required/>
-			<hr>
-			<div class="btn-block">
-				<p>
-					<a href="{{path('app_register')}}">S'inscrire</a>
-				</p>
-				<button class="button-login" type="submit">Se connecter</button>
-			</div>
+			<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+			<label for="pseudo_user">Pseudo</label>
+			<input type="text" name="pseudo_user" id="pseudo_user" class="form-control" required autofocus>
+			<label for="password">Password</label>
+			<input type="password" name="password" id="password" class="form-control" required>
+
+			<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+			<button class="btn btn-lg btn-primary" type="submit">
+				Sign in
+			</button>
 		</form>
 	</div>
 {% endblock %}
