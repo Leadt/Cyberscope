@@ -121,4 +121,6 @@
 	<div class="btn-block">
 		<button class="button-sign" type="submit" href="{{path('app_homepage')}}">S'inscrire</button>
 	</div>
-</form></div>{% endblock %}
+</form></div>{{ form_start(registrationForm) }}{{ form_row(registrationForm.pseudo_user) }}{{ form_row(registrationForm.nom_user) }}{{ form_row(registrationForm.prenom_user) }}{{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}<button class="button-sign" type="submit">S'inscrire</button>{{ form_end(registrationForm) }}{% endblock %}

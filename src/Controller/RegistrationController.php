@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\User;
-use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use App\Form\RegistrationFormType;
 use App\Security\UtilisateurAuthenticator;
 use Doctrine\ORM\EntityManagerInterface;

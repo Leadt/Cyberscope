@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-use App\Repository\PostRepository;
+use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -28,6 +28,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 30)]
     private ?string $prenom_user = null;
 
+    /**
+     * @var string The hashed password
+     */
     #[ORM\Column(length: 20)]
     private ?string $mdp_user = null;
 
@@ -89,18 +92,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getPassword(): ?string
-    {
-        return $this->mdp_user;
-    }
-
-    public function setPassword(string $mdp_user): self
-    {
-        $this->mdp_user = $mdp_user;
-
-        return $this;
-    }
-
     public function getPhotoUser(): ?string
     {
         return $this->photo_user;
@@ -112,7 +103,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
-
     /**
      * A visual identifier that represents this user.
      *
@@ -138,6 +128,21 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setRoles(array $roles): self
     {
         $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * @see PasswordAuthenticatedUserInterface
+     */
+    public function getPassword(): string
+    {
+        return $this->mdp_user;
+    }
+
+    public function setPassword(string $mdp_user): self
+    {
+        $this->mdp_user = $mdp_user;
 
         return $this;
     }

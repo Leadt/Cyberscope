@@ -20,7 +20,7 @@ class RegistrationFormType extends AbstractType
             ->add('pseudo_user')
             ->add('nom_user')
             ->add('prenom_user')
-            ->add('mdp_user', PasswordType::class, [
+            ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
