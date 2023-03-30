@@ -103,25 +103,28 @@
 	{{ form_row(Postform.titre_post) }}
 	{{ form_row(Postform.description_post) }}
 	{{ form_row(Postform.image_post) }}
-	{{ form_end(Postform) }}
 
-</form></br><div class="main-block">
-<h1>Ajout post</h1>
-<form action="{{ path('app_homepage') }}" method="post">
+	{#
+				</form></br><div class="main-block">
+				<h1>Ajout post</h1>
+				<form action="{{ path('app_homepage') }}" method="post">
+				
+					<hr>
+					<input type="text" name="titre" id="titre" placeholder="Titre" required/>
+					<textarea name="description" id="description" placeholder="Description" required/></textarea>
+				<br>
+				<br>
+				Ajouter une illustration
+				<br>
+				<input type="file" name="photo" id="photo" accept=".png,.jpeg,.jpg,.svg"/>
+				
+				<hr>
+				#}
+	<div class="block">
+		<button class="button-create" type="submit">Créer</button>
 
-	<hr>
-	<input type="text" name="titre" id="titre" placeholder="Titre" required/>
-	<textarea name="description" id="description" placeholder="Description" required/></textarea>
-<br>
-<br>
-Ajouter une illustration
-<br>
-<input type="file" name="photo" id="photo" accept=".png,.jpeg,.jpg,.svg"/>
-
-<hr>
-
+	</div>
+</form>
 <div class="block">
-	<button class="button-create" type="submit" href="{{path('app_homepage')}}">Créer</button>
-
-</div></form><div class="block">
-<a class="a-delete" href="{{path('app_homepage')}}">Annuler</a></div></div>{% endblock %}
+	<a class="a-delete" href="{{path('app_homepage')}}">Annuler</a>
+</div></div>{{ form_end(Postform) }}{% endblock %}
