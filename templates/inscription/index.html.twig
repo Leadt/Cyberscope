@@ -43,22 +43,18 @@
 			margin: 0 30px;
 		}
 		label#icon {
-			margin: 0;
 			border-radius: 5px 0 0 5px;
 		}
 		input[type=text],
 		input[type=password] {
 			width: calc(100% - 57px);
 			height: 36px;
-			margin: 13px 0 0 -5px;
+			margin-left: 2px;
 			padding-left: 10px;
 			border-radius: 0 5px 5px 0;
 			border: solid 1px #cbc9c9;
 			box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.09);
 			background: #fff;
-		}
-		input[type=password] {
-			margin-bottom: 15px;
 		}
 		#icon {
 			display: inline-block;
@@ -87,44 +83,60 @@
 			background: #b18f1d;
 		}
 	</style>
-</form></br><div class="main-block">
-<h1>Inscription</h1>
-{#<form action="{{ path('app_register') }}" method="post">
+</br>
+
+<div class="main-block">
+	<h1>Inscription</h1>
 	{{ form_start(registrationForm) }}
+
 	<hr>
-	<label id="icon" for="name">
-		<i class="fas fa-user"></i>
-	</label>
-	<input type="text" name="pseudo_user" id="pseudo_user" placeholder="Pseudo" required/>
-	{{ form_row(registrationForm.pseudo_user) }}
-	<label id="icon" for="name">
-		<i class="fas fa-user"></i>
-	</label>
 
-	<input type="text" name="nom_user" id="nom_user" placeholder="Nom" required/>{{ form_row(registrationForm.nom_user) }}
-	<label id="icon" for="name">
-		<i class="fas fa-user"></i>
-	</label>
-	<input type="text" name="prenom_user" id="prenom_user" placeholder="Prénom" required/>
-	{{ form_row(registrationForm.prenom_user) }}
+	<div class="row mb-2 ">
+		<div class="col-1">
+			<label id="icon" for="name">
+				<i class="fas fa-user"></i>
+			</label>
+		</div>
+		<div class="col-11 form-label mt-1">{{ form_row(registrationForm.pseudo_user) }}
+		</div>
+	</div>
 
-	<label id="icon" for="name">
-		<i class="fas fa-unlock-alt"></i>
-	</label>
-	<input type="password" name="mdp_user" id="mdp_user" placeholder="Mot de passe" required/>
-	{{ form_row(registrationForm.plainPassword, {
-									            label: 'Password'
-									        }) }}
+	<div class="row mb-2">
+		<div class="col-1">
+			<label id="icon" for="name">
+				<i class="fas fa-user"></i>
+			</label>
+		</div>
+		<div class="col-11 form-label mt-1">{{ form_row(registrationForm.nom_user) }}
+		</div>
+	</div>
 
-	<label id="icon" for="photo">
-		<i class="fa fa-user-circle"></i>
-	</label>
-	Photo de profil
-	<br>
-	<input type="file" name="photo_user" id="photo_user" placeholder="Photo de profil" accept=".png,.jpeg,.jpg,.svg"/>
+	<div class="row mb-2">
+		<div class="col-1">
+			<label id="icon" for="name">
+				<i class="fas fa-user"></i>
+			</label>
+		</div>
+		<div class="col-11 form-label mt-1">{{ form_row(registrationForm.prenom_user) }}
+		</div>
+	</div>
 
+	<div class="row mb-2">
+		<div class="col-1">
+			<label id="icon" for="name">
+				<i class="fas fa-unlock-alt"></i>
+			</label>
+		</div>
+		<div class="col-11 form-label mt-1">{{ form_row(registrationForm.plainPassword) }}
+		</div>
+	</div>
+	<label for="registration_form_photo_user" class="form-label ">Photo de profil</label>
+	<input class="form-control" type="file" id="registration_form_photo_user" name="registration_form[photo_user]" accept=".png,.jpeg,.jpg,.svg"/>
+
+	{{ form_row(registrationForm.photo_user) }}
 	<hr>
 	<div class="btn-block">
-		<button class="button-sign" type="submit">S'inscrire</button>
+		{{ form_end(registrationForm) }}
+		<button class="button-sign" name="submit" id="submit" type="submit">S'inscrire</button>
 	</div>
-</form>#}</div>{{form_start(registrationForm)}}{{form_row(registrationForm.pseudo_user)}}{{form_row(registrationForm.nom_user)}}{{form_row(registrationForm.prenom_user)}}{{form_row(registrationForm.plainPassword,{label:'Password'})}}<button class="button-sign" type="submit">S'inscrire</button>{{ form_end(registrationForm) }}{% endblock %}
+</div>{% endblock %}
