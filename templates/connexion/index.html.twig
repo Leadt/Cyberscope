@@ -86,6 +86,9 @@
 		button:hover {
 			background: #b18f1d;
 		}
+		.test {
+			color: white
+		}
 	</style>
 
 
@@ -94,9 +97,9 @@
 	{% endif %}
 
 	{% if app.user %}
-		<div class="mb-3">
-			Bienvenue
-			{{ app.user.userIdentifier }},
+		<div class="mb-3 test">
+			You are logged in as
+			{{ app.user.getPseudoUser() }},
 			<a href="{{ path('app_logout') }}">Déconnexion</a>
 		</div>
 	{% endif %}
@@ -104,27 +107,27 @@
 	<div
 		class="main-block">
 		{#<h1>Connexion</h1>
-														<form method="post">
-												
-															<hr>
-															<label id="icon" for="name">
-																<i class="fas fa-user"></i>
-															</label>
-															<input type="text" name="pseudo_user" id="pseudo_user" placeholder="Pseudo" required/>
-															<label id="icon" for="name">
-																<i class="fas fa-unlock-alt"></i>
-															</label>
-															<input type="password" name="password" id="password" placeholder="Mot de passe" required/>
-															<hr>
-															<div class="btn-block">
-																<p>
-																	<a href="{{path('app_register')}}">S'inscrire</a>
-																</p>
-																<button class="button-login" type="submit">Se connecter</button>
-															</div>
-												
-												
-														</form>#}
+																														<form method="post">
+																												
+																															<hr>
+																															<label id="icon" for="name">
+																																<i class="fas fa-user"></i>
+																															</label>
+																															<input type="text" name="pseudo_user" id="pseudo_user" placeholder="Pseudo" required/>
+																															<label id="icon" for="name">
+																																<i class="fas fa-unlock-alt"></i>
+																															</label>
+																															<input type="password" name="password" id="password" placeholder="Mot de passe" required/>
+																															<hr>
+																															<div class="btn-block">
+																																<p>
+																																	<a href="{{path('app_register')}}">S'inscrire</a>
+																																</p>
+																																<button class="button-login" type="submit">Se connecter</button>
+																															</div>
+																												
+																												
+																														</form>#}
 
 		<form method="post">
 

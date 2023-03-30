@@ -89,26 +89,32 @@
 	</style>
 </form></br><div class="main-block">
 <h1>Inscription</h1>
-<form action="{{ path('app_register') }}" method="post">
-
+{#<form action="{{ path('app_register') }}" method="post">
+	{{ form_start(registrationForm) }}
 	<hr>
 	<label id="icon" for="name">
 		<i class="fas fa-user"></i>
 	</label>
 	<input type="text" name="pseudo_user" id="pseudo_user" placeholder="Pseudo" required/>
+	{{ form_row(registrationForm.pseudo_user) }}
 	<label id="icon" for="name">
 		<i class="fas fa-user"></i>
 	</label>
-	<input type="text" name="nom_user" id="no_userm" placeholder="Nom" required/>
+
+	<input type="text" name="nom_user" id="nom_user" placeholder="Nom" required/>{{ form_row(registrationForm.nom_user) }}
 	<label id="icon" for="name">
 		<i class="fas fa-user"></i>
 	</label>
 	<input type="text" name="prenom_user" id="prenom_user" placeholder="Prénom" required/>
+	{{ form_row(registrationForm.prenom_user) }}
 
 	<label id="icon" for="name">
 		<i class="fas fa-unlock-alt"></i>
 	</label>
 	<input type="password" name="mdp_user" id="mdp_user" placeholder="Mot de passe" required/>
+	{{ form_row(registrationForm.plainPassword, {
+									            label: 'Password'
+									        }) }}
 
 	<label id="icon" for="photo">
 		<i class="fa fa-user-circle"></i>
@@ -119,8 +125,6 @@
 
 	<hr>
 	<div class="btn-block">
-		<button class="button-sign" type="submit" href="{{path('app_homepage')}}">S'inscrire</button>
+		<button class="button-sign" type="submit">S'inscrire</button>
 	</div>
-</form></div>{{ form_start(registrationForm) }}{{ form_row(registrationForm.pseudo_user) }}{{ form_row(registrationForm.nom_user) }}{{ form_row(registrationForm.prenom_user) }}{{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}<button class="button-sign" type="submit">S'inscrire</button>{{ form_end(registrationForm) }}{% endblock %}
+</form>#}</div>{{form_start(registrationForm)}}{{form_row(registrationForm.pseudo_user)}}{{form_row(registrationForm.nom_user)}}{{form_row(registrationForm.prenom_user)}}{{form_row(registrationForm.plainPassword,{label:'Password'})}}<button class="button-sign" type="submit">S'inscrire</button>{{ form_end(registrationForm) }}{% endblock %}

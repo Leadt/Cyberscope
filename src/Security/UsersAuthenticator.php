@@ -27,12 +27,12 @@ class UsersAuthenticator extends AbstractLoginFormAuthenticator
 
     public function authenticate(Request $request): Passport
     {
-        $username = $request->request->get('username', '');
+        $pseudo_user = $request->request->get('pseudo_user', '');
 
-        $request->getSession()->set(Security::LAST_USERNAME, $username);
+        $request->getSession()->set(Security::LAST_USERNAME, $pseudo_user);
 
         return new Passport(
-            new UserBadge($username),
+            new UserBadge($pseudo_user),
             new PasswordCredentials($request->request->get('password', '')),
             [
                 new CsrfTokenBadge('authenticate', $request->request->get('_csrf_token')),
