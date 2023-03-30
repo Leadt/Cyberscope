@@ -76,15 +76,23 @@
 					CyberCom
 				</a>
 			</li>
-			<li class="navli">
-				<a class="nava" href="{{path('app_utilisateur') }}">
-					Mon compte
-				</a>
-			</li>
-			<li class="navli">
-				<a class="nava" href="{{path('app_login') }}">
-					Connexion</a>
-			</li>
+
+			{% if app.user %}
+				<li class="navli">
+					<a class="nava" href="{{path('app_utilisateur') }}">
+						Mon compte
+					</a>
+				</li>
+				<li class="navli">
+					<a class="nava" href="{{path('app_logout') }}">
+						Déconnexion</a>
+				</li>
+			{% else %}
+				<li class="navli">
+					<a class="nava" href="{{path('app_login') }}">
+						Connexion</a>
+				</li>
+			{% endif %}
 		</ul>
 
 
@@ -100,4 +108,4 @@
 
 			</footer>
 		</div><!-- End Footer --></head>
-</html>
+</html></head></html>
