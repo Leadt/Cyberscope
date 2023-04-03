@@ -3,8 +3,6 @@
 namespace App\Form;
 
 use App\Entity\Post;
-use App\Entity\User;
-use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\Form\FormBuilderInterface;
