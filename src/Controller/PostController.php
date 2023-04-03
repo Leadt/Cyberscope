@@ -3,12 +3,15 @@
 namespace App\Controller;
 
 use App\Entity\Post;
+use App\Entity\User;
 use App\Form\PostFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\SecurityBundle\Security as SecurityBundleSecurity;
 
 class PostController extends AbstractController
 {
@@ -21,18 +24,30 @@ class PostController extends AbstractController
     }
 
     #[Route('/formPost', name: "app_formPost")]
-    public function formPost(Request $request, EntityManagerInterface $entityManager): Response
+    public function formPost(Request $request, EntityManagerInterface $entityManager, SecurityBundleSecurity $security): Response
     {
+        //$user = $this->getUser();
+        //$post->setUser($user->getId());
         $post = new Post();
         $form = $this->createForm(PostFormType::class, $post);
         $form->handleRequest($request);
+        //$entityManager->setUser($this->getUser());
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted()) {
+            //dd('bonjour');
+            var_dump($request->request->all());
             $entityManager->persist($post);
             $entityManager->flush();
 
             return $this->redirectToRoute('app_homepage');
         }
+
+        if ($request->isMethod('POST')) {
+
+            //die();
+            // traitement des données soumises
+        }
+
         return $this->render('post/formPost.html.twig', [
             'Postform' => $form->createView()
         ]);

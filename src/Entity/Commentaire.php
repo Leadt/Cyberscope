@@ -38,7 +38,7 @@ class Commentaire
     #[ORM\JoinColumn(nullable: false)]
     private ?Post $com = null;*/
 
-    #[ORM\OneToMany(mappedBy: 'commentaires', targetEntity: Post::class)]
+    #[ORM\ManyToOne(inversedBy: 'commentaires', targetEntity: Post::class)]
     private $post;
 
     public function getId(): ?int
@@ -81,16 +81,16 @@ class Commentaire
 
         return $this;
     }
-    /*
-    public function getCom()
+
+    public function getPost()
     {
-        return $this->commentaires;
+        return $this->post;
     }
 
-    public function setCom(Commentaire $com)
+    public function setPost(Post $post)
     {
-        $this->commentaires = $com;
+        $this->post = $post;
 
         return $this;
-    }*/
+    }
 }

@@ -41,8 +41,9 @@ class Post
     #[ORM\ManyToOne(inversedBy: 'posts', targetEntity: User::class)]
     private $user;
 
-    #[ORM\ManyToOne(inversedBy: 'post', targetEntity: Commentaire::class)]
+    #[ORM\OneToMany(mappedBy: 'post', targetEntity: Commentaire::class)]
     private $commentaires;
+
 
 
     public function __construct()
@@ -63,6 +64,18 @@ class Post
     public function setTitrePost(string $titre_post): self
     {
         $this->titre_post = $titre_post;
+
+        return $this;
+    }
+
+    public function getUser(): ?string
+    {
+        return $this->user;
+    }
+
+    public function setUser(string $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
@@ -132,34 +145,44 @@ class Post
     }
 
     /**
-     * @return Collection<int, Commentaire>
+     * @return Collection|Comment[]
      */
-    /*
-    
-    public function getCommentaire(): Collection
+
+
+    public function getCom(): Collection
     {
         return $this->commentaires;
+    }
+
+    public function setCom(string $com): self
+    {
+        $this->commentaires = $com;
+
+        return $this;
     }
 
     public function addCommentaire(Commentaire $commentaire): self
     {
         if (!$this->commentaires->contains($commentaire)) {
-            $this->commentaires->add($commentaire);
-            $commentaire->setCom($this);
+            $this->commentaires[] = $commentaire;
+            $commentaire->setPost($this);
         }
+        return $this;
 
         return $this;
     }
 
-    public function removeCommentaire(Commentaire $commentaires): self
+    public function removeCommentaire(Commentaire $commentaire): self
     {
-        if ($this->commentaires->removeElement($commentaires)) {
+        if ($this->commentaires->contains($commentaire)) {
+            $this->commentaires->removeElement($commentaire);
             // set the owning side to null (unless already changed)
-            if ($commentaires->getCom() === $this) {
-                $commentaires->setCom(null);
+            if ($commentaire->getPost() === $this) {
+                $commentaire->setPost($this);
+                //$commentaire->setPost(null);
             }
         }
 
         return $this;
-    }*/
+    }
 }

@@ -3,26 +3,45 @@
 namespace App\Form;
 
 use App\Entity\Post;
+use App\Entity\User;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\Image;
-use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class PostFormType extends AbstractType
 {
+
+    private $security;
+
+
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+
         $builder
+            /*->add('tags', EntityType::class, array(
+                'class' => Tag::class,
+                'query_builder' => function (EntityRepository $er) use ($user) {
+                    return $er->createQueryBuilder('u')
+                        ->where('u.user = :user')
+                        ->setParameter('user', $user->getId());
+                },
+                'expanded' => true,
+                'multiple' => true
+            ))*/
+            //->add('pseudo_user', TextType::class)
             ->add('titre_post', TextType::class, [
                 'label' => false,
                 'attr' => ['placeholder' => 'Titre'],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Veuillez entrez un titre',
+                        'message' => 'Veuillez entrez un titre.',
                     ]),
                     new Length([
                         'max' => 100,
@@ -36,7 +55,7 @@ class PostFormType extends AbstractType
                 'attr' => ['placeholder' => 'Description'],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Veuillez entrez une description',
+                        'message' => 'Veuillez entrez une description.',
                     ]),
                     new Length([
                         'min' => 3,
