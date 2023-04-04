@@ -124,12 +124,14 @@
 		}
 		.deconect {
 			color: white;
-			height: 525px;
+			height: 530px;
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			font: 20px / 1.5 sans-serif;
 		}
 	</style>
+
 
 	{% if app.user %}
 
@@ -139,96 +141,106 @@
 				<button class="button-add" onclick="window.location.href = '{{ path('app_formPost') }}'">Nouveau post</button>
 			</div>
 
-			<div class="card" aria-hidden="true">
-				<div class="card-body">
-					<p class="card-text placeholder-glow">
-						<span class="placeholder col-4"></span>
+
+			{% for post in liste_post %}
+				<div class="card">
+					<div class="card-body">
+						<p>
+							<h5 class="card-title">
+								<span>{{ post.getTitrePost() }}</span>
+							</h5>
+
+						</p>
+						<!--afficher le pseudo de la personne qui a écrit le post-->
+						<span class="card-pseudo">Pseudo</span>
 					</p>
 
-					<span class="placeholder col-3"></span>
-				</p>
-				<img class="5%" src="images/ballon.jpg" class="card-img-top" alt="ballon">
+					<!--faire une boucle, si la case image==nul alors on affiche rien sinon on affiche l'image associé-->
+					<img class="5%" src="images/ballon.jpg" class="card-img-top" alt="ballon">
 
-				<h5>
-					<span class="placeholder col-6"></span>
-				</h5>
-				<p class="card-text placeholder-glow">
-					<span class="placeholder col-7"></span>
-					<span class="placeholder col-4"></span>
-					<span class="placeholder col-4"></span>
-					<span class="placeholder col-6"></span>
-					<span class="placeholder col-8"></span>
-				</p>
-				<input type="checkbox" id="r1">
-				<label for="r1" class="react">
-					<i data-icon="💯"></i>
-				</label>
+					<p>
+						<span>{{ post.getDescriptionPost() }}</span>
+					</p>
 
-				<input type="checkbox" id="r2">
-				<label for="r2" class="react">
-					<i data-icon="❤️"></i>
-				</label>
+					<input type="checkbox" id="r5">
+					<label for="r5" class="react">
+						<i data-icon="💯"></i>
+					</label>
 
-				<input type="checkbox" id="r3">
-				<label for="r3" class="react">
-					<i data-icon="🐙"></i>
-				</label>
+					<input type="checkbox" id="r6">
+					<label for="r6" class="react">
+						<i data-icon="❤️"></i>
+					</label>
 
-				<input type="checkbox" id="r4">
-				<label for="r4" class="react">
-					<i data-icon="👍"></i>
-				</label>
-				<br>
-				<a href="#" tabindex="-1" class="btn btn-primary disabled placeholder col-2"></a>
+					<input type="checkbox" id="r7">
+					<label for="r7" class="react">
+						<i data-icon="🐙"></i>
+					</label>
 
+					<input type="checkbox" id="r8">
+					<label for="r8" class="react">
+						<i data-icon="👍"></i>
+					</label>
+					<br>
+
+					<a href="#" tabindex="-1" class="btn btn-primary disabled ">Commenter</a>
+				</div>
 
 			</div>
-		</div>
-
-		<div class="card">
+		{% endfor %}
+		<div class="card" aria-hidden="true">
 			<div class="card-body">
-				<p>
-					<h5 class="card-title">
-						<span>Titre</span>
-					</h5>
+				<p class="card-text placeholder-glow">
+					<span class="placeholder col-4"></span>
 				</p>
 
-				<span class="card-pseudo">Pseudo</span>
+				<span class="placeholder col-3"></span>
 			</p>
+
 			<img class="5%" src="images/ballon.jpg" class="card-img-top" alt="ballon">
 
-			<p>
-				<span>Description</span>
+			<h5>
+				<span class="placeholder col-6"></span>
+			</h5>
+			<p class="card-text placeholder-glow">
+				<span class="placeholder col-7"></span>
+				<span class="placeholder col-4"></span>
+				<span class="placeholder col-4"></span>
+				<span class="placeholder col-6"></span>
+				<span class="placeholder col-8"></span>
 			</p>
-
-			<input type="checkbox" id="r5">
-			<label for="r5" class="react">
+			<input type="checkbox" id="r1">
+			<label for="r1" class="react">
 				<i data-icon="💯"></i>
 			</label>
 
-			<input type="checkbox" id="r6">
-			<label for="r6" class="react">
+			<input type="checkbox" id="r2">
+			<label for="r2" class="react">
 				<i data-icon="❤️"></i>
 			</label>
 
-			<input type="checkbox" id="r7">
-			<label for="r7" class="react">
+			<input type="checkbox" id="r3">
+			<label for="r3" class="react">
 				<i data-icon="🐙"></i>
 			</label>
 
-			<input type="checkbox" id="r8">
-			<label for="r8" class="react">
+			<input type="checkbox" id="r4">
+			<label for="r4" class="react">
 				<i data-icon="👍"></i>
 			</label>
 			<br>
+			<a href="#" tabindex="-1" class="btn btn-primary disabled placeholder col-2"></a>
 
-			<a href="#" tabindex="-1" class="btn btn-primary disabled ">Commenter</a>
+
 		</div>
 	</div>
 </div>{% else %}
+
 <div class="container deconect">
-	<a href="{{ path('app_login') }}">
-		Connectez-vous
-	</a>
-	pour accéder aux contenus
+	<p>
+		<a href="{{ path('app_login') }}">
+			CLIQUEZ ICI
+		</a>
+
+		pour accéder aux contenus</p>
 </div>{% endif %}{% endblock %}

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Post;
 use App\Form\PostFormType;
+use App\Repository\PostRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,10 +15,14 @@ use Symfony\Bundle\SecurityBundle\Security as SecurityBundleSecurity;
 class PostController extends AbstractController
 {
     #[Route('/', name: "app_homepage")]
-    public function index(): Response
+    public function index(PostRepository $post): Response
     {
+        //$liste = $post->findAll();
+        $liste = $post->findBy(array(), array('id' => 'DESC'));
+
         return $this->render('post/index.html.twig', [
             'controller_name' => 'PostController',
+            'liste_post' => $liste,
         ]);
     }
 

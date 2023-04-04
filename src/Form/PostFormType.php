@@ -59,8 +59,8 @@ class PostFormType extends AbstractType
                     new Length([
                         'min' => 3,
                         'minMessage' => 'La description doit contenir au moins 3 caratères',
-                        'max' => 155,
-                        'maxMessage' => 'La description ne doit pas dépasser 155 caratères'
+                        'max' => 1000,
+                        'maxMessage' => 'La description ne doit pas dépasser 1000 caratères'
                     ]),
                 ],
 

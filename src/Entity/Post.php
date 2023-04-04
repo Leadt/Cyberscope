@@ -19,7 +19,7 @@ class Post
     #[ORM\Column(length: 100)]
     private ?string $titre_post = null;
 
-    #[ORM\Column(length: 155)]
+    #[ORM\Column(length: 1000)]
     private ?string $description_post = null;
 
     #[ORM\Column(length: 20, nullable: true)]
