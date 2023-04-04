@@ -70,12 +70,12 @@ class Commentaire
         return $this;
     }*/
 
-    public function getUser(): ?Post
+    public function getUser()
     {
         return $this->user;
     }
 
-    public function setUser(?User $user): self
+    public function setUser(User $user): self
     {
         $this->user = $user;
 
@@ -87,7 +87,7 @@ class Commentaire
         return $this->post;
     }
 
-    public function setPost(Post $post)
+    public function setPost(Post $post): self
     {
         $this->post = $post;
 

@@ -31,19 +31,14 @@ class PostController extends AbstractController
         $form->handleRequest($request);
         //$entityManager->setUser($this->getUser());
 
-        if ($form->isSubmitted()) {
-            //dd('bonjour');
-            var_dump($request->request->all());
+        //if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()) {
+            dd('bonjour');
+            //var_dump($request->request->all());
             $entityManager->persist($post);
             $entityManager->flush();
 
             return $this->redirectToRoute('app_homepage');
-        }
-
-        if ($request->isMethod('POST')) {
-
-            //die();
-            // traitement des données soumises
         }
 
         return $this->render('post/formPost.html.twig', [

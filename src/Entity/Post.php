@@ -144,7 +144,7 @@ class Post
     }
 
     /**
-     * @return Collection|Comment[]
+     * @return Collection|Commentaires[]
      */
 
 
@@ -167,8 +167,6 @@ class Post
             $commentaire->setPost($this);
         }
         return $this;
-
-        return $this;
     }
 
     public function removeCommentaire(Commentaire $commentaire): self
@@ -178,7 +176,6 @@ class Post
             // set the owning side to null (unless already changed)
             if ($commentaire->getPost() === $this) {
                 $commentaire->setPost($this);
-                //$commentaire->setPost(null);
             }
         }
 

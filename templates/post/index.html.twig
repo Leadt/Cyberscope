@@ -124,6 +124,10 @@
 		}
 		.deconect {
 			color: white;
+			height: 525px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 		}
 	</style>
 
@@ -223,5 +227,8 @@
 	</div>
 </div>{% else %}
 <div class="container deconect">
-	<a href="{{ path('app_login') }}">Connectez-vous</a>
-	pour acceder a du contenu</div>{% endif %}{% endblock %}
+	<a href="{{ path('app_login') }}">
+		Connectez-vous
+	</a>
+	pour accéder aux contenus
+</div>{% endif %}{% endblock %}
