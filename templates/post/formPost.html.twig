@@ -41,11 +41,11 @@
 			background: #ebebeb;
 		}
 		form {
-			margin: 0 30px;
+			margin: 0 10px;
 		}
 
 		textarea {
-			rows: 1000;
+			rows: 10;
 			height: 80px;
 			width: 100%;
 			margin: 13px 0 0 -5px;
@@ -71,7 +71,6 @@
 		}
 		.button-create,
 		.a-delete {
-			width: 100%;
 			margin: 10px auto;
 			border-radius: 5px;
 			border: none;
@@ -80,8 +79,9 @@
 			color: #fff;
 		}
 		.button-create {
+			width: 95%;
 			background: #dcb124;
-			padding: 10px 0;
+			padding: 10px;
 		}
 
 		button:hover {
@@ -98,34 +98,42 @@
 			background: #8B0000;
 
 		}
+		.texte {
+			padding: 30px;
+		}
 	</style>
 	{{ form_start(Postform) }}
-	{{ form_row(Postform.titre_post) }}
-	{{ form_row(Postform.description_post) }}
-	{{ form_row(Postform.image_post) }}
 
 
-	{#
-						</form></br><div class="main-block">
-						<h1>Ajout post</h1>
-						<form action="{{ path('app_homepage') }}" method="post">
-						
-							<hr>
-							<input type="text" name="titre" id="titre" placeholder="Titre" required/>
-							<textarea name="description" id="description" placeholder="Description" required/></textarea>
-						<br>
-						<br>
-						Ajouter une illustration
-						<br>
-						<input type="file" name="photo" id="photo" accept=".png,.jpeg,.jpg,.svg"/>
-						
-						<hr>
-						#}
-	<div class="block">
-		<button class="button-create" id="submit" type="submit">Créer</button>
+</br>
+<div class="main-block">
+	<h1>Ajout d'un post</h1>
 
+	<hr>
+	<div class="form">
+		<div class="texte">
+			{{ form_row(Postform.titre_post) }}
+
+			{{ form_row(Postform.description_post) }}
+			<br>
+			Ajouter une illustration
+			<!--<input type="file" name="photo" id="photo" accept=".png,.jpeg,.jpg,.svg"/>-->
+			{{ form_row(Postform.image_post) }}</div>
+
+		<hr><div class="block">
+			<button class="button-create" id="submit" type="submit">Créer</button>
+		</div>
+		<div class="block">
+			<a class="a-delete" href="{{path('app_homepage')}}">Annuler</a>
+		</div>
 	</div>
-</form>
-<div class="block">
-	<a class="a-delete" href="{{path('app_homepage')}}">Annuler</a>
-</div></div>{{ form_end(Postform) }}{% endblock %}
+</div>
+{{ form_end(Postform) }}
+{# Code à mettre pour afficher l'erreur si le code n'est pas valide
+{% if errors|length > 0 %}
+<ul>
+{% for error in errors %}
+<li>{{ error.message }}</li>
+{% endfor %}
+</ul>
+{% endif %}#}{% endblock %}

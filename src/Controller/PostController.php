@@ -33,13 +33,31 @@ class PostController extends AbstractController
 
         //if ($form->isSubmitted()) {
         if ($form->isSubmitted() && $form->isValid()) {
-            dd('bonjour');
+            //dd('bonjour');
             //var_dump($request->request->all());
             $entityManager->persist($post);
             $entityManager->flush();
 
             return $this->redirectToRoute('app_homepage');
         }
+        $errors = array();
+
+        /*Code à mettre pour trouver l'erreur si le form n'est pas valide 
+        
+        if ($form->isSubmitted() && !$form->isValid()) {
+            var_dump($request->request->all());
+            $errors = $form->getErrors(true);
+            foreach ($errors as $error) {
+                $fieldName = $error->getOrigin()->getName();
+                $errorMessage = $error->getMessage();
+                // Do something with the field name and error message, such as display it to the user
+            }
+        }
+
+        return $this->render('post/formPost.html.twig', [
+            'Postform' => $form->createView(),
+            'errors' => $errors
+        ]);*/
 
         return $this->render('post/formPost.html.twig', [
             'Postform' => $form->createView()

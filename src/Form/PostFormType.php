@@ -11,6 +11,7 @@ use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class PostFormType extends AbstractType
@@ -48,7 +49,7 @@ class PostFormType extends AbstractType
                 ],
 
             ])
-            ->add('description_post', TextType::class, [
+            ->add('description_post', TextareaType::class, [
                 'label' => false,
                 'attr' => ['placeholder' => 'Description'],
                 'constraints' => [
@@ -65,11 +66,15 @@ class PostFormType extends AbstractType
 
             ])
             ->add('image_post', FileType::class, [
+                'label' => false,
                 'required' => false,
                 'mapped' => false,
                 'constraints' => [
                     new Image(['maxSize' => '1024k'])
                 ],
+                'attr' => array(
+                    'accept' => 'image/*'
+                ),
             ]);
     }
 
