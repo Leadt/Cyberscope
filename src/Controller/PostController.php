@@ -29,25 +29,25 @@ class PostController extends AbstractController
     #[Route('/formPost', name: "app_formPost")]
     public function formPost(Request $request, EntityManagerInterface $entityManager, SecurityBundleSecurity $security): Response
     {
-        //$user = $this->getUser();
-        //$post->setUser($user->getId());
+        $user = $this->getUser();
         $post = new Post();
+        $post->setUser($user);
         $form = $this->createForm(PostFormType::class, $post);
         $form->handleRequest($request);
-        //$entityManager->setUser($this->getUser());
 
         //if ($form->isSubmitted()) {
         if ($form->isSubmitted() && $form->isValid()) {
-            //dd('bonjour');
+            //dd($form->getData());
             //var_dump($request->request->all());
             $entityManager->persist($post);
             $entityManager->flush();
 
             return $this->redirectToRoute('app_homepage');
         }
-        $errors = array();
 
         /*Code à mettre pour trouver l'erreur si le form n'est pas valide 
+
+        $errors = array();
         
         if ($form->isSubmitted() && !$form->isValid()) {
             var_dump($request->request->all());

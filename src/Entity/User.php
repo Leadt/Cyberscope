@@ -219,7 +219,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         if (!$this->posts->contains($post)) {
             $this->posts[] = $post;
-            $post->setUser($this);
+            $post->setUserId($this);
         }
         return $this;
     }*/

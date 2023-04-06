@@ -151,12 +151,20 @@
 							</h5>
 
 						</p>
-						<!--afficher le pseudo de la personne qui a écrit le post-->
-						<span class="card-pseudo">Pseudo</span>
+						<!--supp le if quand il y aura forcément un pseudo associé-->
+						<span class="card-pseudo">
+							{% if post.getUser() %}
+								{{ post.getUser().getPseudoUser() }}
+							{% endif %}
+						</span>
 					</p>
-
 					<!--faire une boucle, si la case image==nul alors on affiche rien sinon on affiche l'image associé-->
+
+					{% if post.getImagePost %}
+						<img class="5%" src="images/{{ post.getImagePost }}.jpg" class="card-img-top" alt="{{ post.getImagePost }}">
+					{% endif %}
 					<img class="5%" src="images/ballon.jpg" class="card-img-top" alt="ballon">
+
 
 					<p>
 						<span>{{ post.getDescriptionPost() }}</span>
