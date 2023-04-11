@@ -3,4 +3,116 @@
 {% block title %}Gestion
 {% endblock %}
 
-{% block body %}{% endblock %}
+{% block body %}
+
+	<style>
+		.listeUser {
+			color: white;
+			display: flex;
+			padding-left: 30px;
+			align-items: center;
+			font: 20px / 1.5 sans-serif;
+		}
+		.titre {
+			color: white;
+			padding-left: 10px;
+			font: 30px / 1.5 sans-serif;
+		}
+		.card {
+			padding: 20px;
+			margin: 3%;
+			color: grey;
+		}
+		.card-pseudo {
+			color: grey;
+		}
+		.button-block {
+			margin-top: 10px;
+			text-align: center;
+		}
+		.button-valider {
+			width: 95%;
+			padding: 10px 0;
+			margin: 10px auto;
+			border-radius: 5px;
+			border: none;
+			background: #2E8B57;
+			font-size: 14px;
+			font-weight: 600;
+			color: #fff;
+		}
+		.button-valider:hover {
+			background: #228B22;
+		}
+		.button-masquer {
+			width: 95%;
+			padding: 10px 0;
+			margin: 10px auto;
+			border-radius: 5px;
+			border: none;
+			background: #A52A2A;
+			font-size: 14px;
+			font-weight: 600;
+			color: #fff;
+		}
+		.buttona-masquer:hover {
+			background: #800000;
+		}
+	</style>
+	<div class="container">
+
+		<span class='titre'>Choix des posts à afficher</span>
+
+
+		{% for post in liste_post %}
+			<div class="card">
+				{% if post.getAffichage()==0 %}
+					<div class="button-block">
+						<button class="button-valider" onclick="window.location.href = '{{ path('post_afficher', {'id': post.id}) }}'">
+							Valider le post</button>
+					</div>
+				{% else %}
+					<div class="button-block">
+						<button class="button-masquer" onclick="window.location.href = '{{ path('post_afficher', {'id': post.id}) }}'">
+							Masquer le post</button>
+					</div>
+				{% endif %}
+
+				<div class="card-body">
+					<p>
+						<h5 class="card-title">
+							<span>{{ post.getTitrePost() }}</span>
+						</h5>
+
+					</p>
+					<!--supp le if quand il y aura forcément un pseudo associé-->
+					<span class="card-pseudo">
+						{% if post.getUser() %}
+							{{ post.getUser().getPseudoUser() }}
+						{% endif %}
+					</span>
+				</p>
+				<!--faire une boucle, si la case image==nul alors on affiche rien sinon on affiche l'image associé-->
+
+				{% if post.getImagePost %}
+					<img class="5%" src="images/{{ post.getImagePost }}.jpg" class="card-img-top" alt="{{ post.getImagePost() }}">
+				{% endif %}
+				<img class="5%" src="images/ballon.jpg" class="card-img-top" alt="ballon">
+
+
+				<p>
+					<span>{{ post.getDescriptionPost() }}</span>
+				</p>
+			</div>
+		</div>
+	{% endfor %}
+
+</div>
+
+<span class='titre'>Liste des utilisateurs</span>
+{% for post in liste_user %}
+	<h5 class='listeUser'>
+
+		<li>{{ post.getPseudoUser() }}</li>
+	</h5>
+{% endfor %}{% endblock %}

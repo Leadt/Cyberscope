@@ -27,6 +27,9 @@ class Post
     private ?string $image_post = null;
 
     #[ORM\Column(type: 'boolean', options: ['default' => false])]
+    private bool $affichage = false;
+
+    #[ORM\Column(type: 'boolean', options: ['default' => false])]
     private bool $cent = false;
 
     #[ORM\Column(type: 'boolean', options: ['default' => false])]
@@ -104,6 +107,16 @@ class Post
         return $this;
     }
 
+    public function getAffichage(): bool
+    {
+        return $this->affichage;
+    }
+
+    public function setAffichage(bool $affichage): void
+    {
+        $this->affichage = $affichage;
+    }
+
     public function getCoeur(): bool
     {
         return $this->coeur;
@@ -139,7 +152,7 @@ class Post
         return $this->cent;
     }
 
-    public function setMyBooleanProperty(bool $cent): void
+    public function setCent(bool $cent): void
     {
         $this->cent = $cent;
     }

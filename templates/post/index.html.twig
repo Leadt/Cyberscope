@@ -143,112 +143,70 @@
 
 
 			{% for post in liste_post %}
-				<div class="card">
-					<div class="card-body">
-						<p>
-							<h5 class="card-title">
-								<span>{{ post.getTitrePost() }}</span>
-							</h5>
+				{% if post.getAffichage()==1 %}
+					<div class="card">
+						<div class="card-body">
+							<p>
+								<h5 class="card-title">
+									<span>{{ post.getTitrePost() }}</span>
+								</h5>
 
+							</p>
+							<!--supp le if quand il y aura forcément un pseudo associé-->
+							<span class="card-pseudo">
+								{% if post.getUser() %}
+									{{ post.getUser().getPseudoUser() }}
+								{% endif %}
+							</span>
 						</p>
-						<!--supp le if quand il y aura forcément un pseudo associé-->
-						<span class="card-pseudo">
-							{% if post.getUser() %}
-								{{ post.getUser().getPseudoUser() }}
-							{% endif %}
-						</span>
-					</p>
-					<!--faire une boucle, si la case image==nul alors on affiche rien sinon on affiche l'image associé-->
+						<!--faire une boucle, si la case image==nul alors on affiche rien sinon on affiche l'image associé-->
 
-					{% if post.getImagePost %}
-						<img class="5%" src="images/{{ post.getImagePost }}.jpg" class="card-img-top" alt="{{ post.getImagePost }}">
-					{% endif %}
-					<img class="5%" src="images/ballon.jpg" class="card-img-top" alt="ballon">
+						{% if post.getImagePost %}
+							<img class="5%" src="images/{{ post.getImagePost }}.jpg" class="card-img-top" alt="{{ post.getImagePost }}">
+						{% endif %}
+						<img class="5%" src="images/ballon.jpg" class="card-img-top" alt="ballon">
 
 
-					<p>
-						<span>{{ post.getDescriptionPost() }}</span>
-					</p>
+						<p>
+							<span>{{ post.getDescriptionPost() }}</span>
+						</p>
 
-					<input type="checkbox" id="r5">
-					<label for="r5" class="react">
-						<i data-icon="💯"></i>
-					</label>
+						<input type="checkbox" id="r5">
+						<label for="r5" class="react">
+							<i data-icon="💯"></i>
+						</label>
 
-					<input type="checkbox" id="r6">
-					<label for="r6" class="react">
-						<i data-icon="❤️"></i>
-					</label>
+						<input type="checkbox" id="r6">
+						<label for="r6" class="react">
+							<i data-icon="❤️"></i>
+						</label>
 
-					<input type="checkbox" id="r7">
-					<label for="r7" class="react">
-						<i data-icon="🐙"></i>
-					</label>
+						<input type="checkbox" id="r7">
+						<label for="r7" class="react">
+							<i data-icon="🐙"></i>
+						</label>
 
-					<input type="checkbox" id="r8">
-					<label for="r8" class="react">
-						<i data-icon="👍"></i>
-					</label>
-					<br>
+						<input type="checkbox" id="r8">
+						<label for="r8" class="react">
+							<i data-icon="👍"></i>
+						</label>
+						<br>
 
-					<a href="#" tabindex="-1" class="btn btn-primary disabled ">Commenter</a>
+						<a href="#" tabindex="-1" class="btn btn-primary disabled ">Commenter</a>
+					</div>
+
 				</div>
-
-			</div>
+			{% endif %}
 		{% endfor %}
-		<div class="card" aria-hidden="true">
-			<div class="card-body">
-				<p class="card-text placeholder-glow">
-					<span class="placeholder col-4"></span>
-				</p>
+	{% else %}
 
-				<span class="placeholder col-3"></span>
-			</p>
+		<div class="container deconect">
+			<p>
+				<a href="{{ path('app_login') }}">
+					CLIQUEZ ICI
+				</a>
 
-			<img class="5%" src="images/ballon.jpg" class="card-img-top" alt="ballon">
-
-			<h5>
-				<span class="placeholder col-6"></span>
-			</h5>
-			<p class="card-text placeholder-glow">
-				<span class="placeholder col-7"></span>
-				<span class="placeholder col-4"></span>
-				<span class="placeholder col-4"></span>
-				<span class="placeholder col-6"></span>
-				<span class="placeholder col-8"></span>
-			</p>
-			<input type="checkbox" id="r1">
-			<label for="r1" class="react">
-				<i data-icon="💯"></i>
-			</label>
-
-			<input type="checkbox" id="r2">
-			<label for="r2" class="react">
-				<i data-icon="❤️"></i>
-			</label>
-
-			<input type="checkbox" id="r3">
-			<label for="r3" class="react">
-				<i data-icon="🐙"></i>
-			</label>
-
-			<input type="checkbox" id="r4">
-			<label for="r4" class="react">
-				<i data-icon="👍"></i>
-			</label>
-			<br>
-			<a href="#" tabindex="-1" class="btn btn-primary disabled placeholder col-2"></a>
-
-
+				pour accéder aux contenus</p>
 		</div>
-	</div>
-</div>{% else %}
-
-<div class="container deconect">
-	<p>
-		<a href="{{ path('app_login') }}">
-			CLIQUEZ ICI
-		</a>
-
-		pour accéder aux contenus</p>
-</div>{% endif %}{% endblock %}
+	{% endif %}
+{% endblock %}

@@ -38,6 +38,23 @@ class PostRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+
+    //REPRENDRE ICI
+    /*
+    public function findAffiche(bool $affiche): array
+    {
+        $conn = $this->getEntityManager()->getConnection();
+
+        $sql = '
+            SELECT * FROM post p
+            WHERE p.affichage == 0
+            ';
+        $stmt = $conn->prepare($sql);
+        $resultSet = $stmt->executeQuery(['affichage' => $affiche]);
+
+        // returns an array of arrays (i.e. a raw data set)
+        return $resultSet->fetchAllAssociative();
+    }*/
     /*
     
     exemple pour recuperer qu'un certain type de données
