@@ -25,11 +25,11 @@
 			</div>
 			<div class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px" style="transform: translateZ(0px)">
 				<svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveaspectratio="none" version="1.1" viewbox="0 0 2560 100" x="0" y="0">
-					<polygon class="text-blueGray-200 fill-current" points="2560 0 2560 100 0 100"></polygon>
+					<polygon class="text-black-200 fill-current" points="2560 0 2560 100 0 100"></polygon>
 				</svg>
 			</div>
 		</section>
-		<section class="relative py-16 bg-blueGray-200">
+		<section class="relative py-16 bg-black-200">
 			<div class="container mx-auto px-4">
 				<div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64">
 					<div class="px-6">
@@ -43,41 +43,24 @@
 						<div class="w-full lg:w-4/12 px-4 lg:order-1">
 							<div class="flex justify-center py-4 lg:pt-4 pt-8">
 								<div class="mr-4 p-3 text-center">
-									<span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">Nombre
+									<span class="text-xl font-bold block uppercase tracking-wide text-black-600">Nombre
 									</span>
-									<span class="text-sm text-blueGray-400">Posts</span>
+									<span class="text-sm text-black-400">Posts</span>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="text-center mt-12">
-						<h3 class="text-4xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
+						<h3 class="text-4xl font-semibold leading-normal mb-2 text-black-700 mb-2">
 							{{ app.user.getNomUser() }}
 							{{ app.user.getPrenomUser() }}
 						</h3>
-						<div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
-							<i class="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
+						<div class="text-sm leading-normal mt-0 mb-2 text-black-400 font-bold uppercase">
+							<i class="fas fa-map-marker-alt mr-2 text-lg text-black-400"></i>
 							{{ app.user.getPseudoUser() }}
 						</div>
 					</div>
-					<div class="mt-10 py-10 border-t border-blueGray-200 text-center">
-						<div class="flex flex-wrap justify-center">
-							<div class="w-full lg:w-9/12 px-4">
-								<p class="mb-4 text-lg leading-relaxed text-blueGray-700">
-									Description (voir si je rajoute dans la bdd)
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<footer class="relative bg-blueGray-200 pt-8 pb-6 mt-8">
-			<div class="container mx-auto px-4">
-				<div class="flex flex-wrap items-center md:justify-between justify-center">
-					<div class="w-full md:w-6/12 px-4 mx-auto text-center"></div>
-				</div>
-			</div>
-		</footer>
-	</section>
-</main>{% endblock %}
+
+				</section>
+			</main>
+		{% endblock %}

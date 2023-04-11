@@ -22,7 +22,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/user/{id}/admin", name="user_admin")
+     * @Route("/utilisateur/{id}/admin", name="user_admin")
      */
     public function ajoutAdmin(User $user, UserRepository $userRepository, ManagerRegistry $managerRegistry, int $id)
     {
@@ -48,8 +48,8 @@ class UserController extends AbstractController
     {
         $entityManager = $managerRegistry->getManager();
         $user = $entityManager->getRepository(User::class)->find($id);
-        $liste_post = $post->findBy(array(), array('id' => 'DESC'), ['user_id' => $id]);
 
+        $liste_post = $post->findBy(['user' => $user], ['id' => 'DESC']);
         return $this->render('utilisateur/compteExterne.html.twig', [
             'controller_name' => 'PostController',
             'liste_post' => $liste_post,
