@@ -32,7 +32,7 @@ security:
   # Note: Only the *first* access control that matches will be used
   access_control:
     # require ROLE_ADMIN for /gestion*
-    #- { path: ^/gestion, roles: ROLE_ADMIN }
+    - { path: ^/gestion, roles: ROLE_ADMIN }
     # - { path: ^/profile, roles: ROLE_USER }
 
 when@test:

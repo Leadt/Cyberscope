@@ -9,7 +9,9 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Bundle\SecurityBundle\Security as SecurityBundleSecurity;
 
 class PostController extends AbstractController
@@ -26,7 +28,7 @@ class PostController extends AbstractController
     }
 
     #[Route('/formPost', name: "app_formPost")]
-    public function formPost(Request $request, EntityManagerInterface $entityManager, SecurityBundleSecurity $security): Response
+    public function formPost(Request $request, EntityManagerInterface $entityManager, SecurityBundleSecurity $security, SluggerInterface $slugger): Response
     {
         $user = $this->getUser();
         $post = new Post();
@@ -38,6 +40,28 @@ class PostController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             //dd($form->getData());
             //var_dump($request->request->all());
+            $image_post = $form->get('image_post')->getData();
+            if ($image_post) {
+                $originalFilename = pathinfo($image_post->getClientOriginalName(), PATHINFO_FILENAME);
+                // this is needed to safely include the file name as part of the URL
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename . '-' . uniqid() . '.' . $image_post->guessExtension();
+
+                // Move the file to the directory where brochures are stored
+                try {
+                    $image_post->move(
+                        $this->getParameter('images_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+
+                // updates the 'brochureFilename' property to store the PDF file name
+                // instead of its contents
+                $post->setImagePost($newFilename);
+            }
+
             $entityManager->persist($post);
             $entityManager->flush();
 

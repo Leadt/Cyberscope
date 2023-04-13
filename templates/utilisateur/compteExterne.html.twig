@@ -112,6 +112,10 @@
 	button:hover {
 		background: #b18f1d;
 	}
+	.card-img {
+		height: 300px;
+		width: auto;
+	}
 </style>
 
 <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
@@ -135,7 +139,13 @@
 					<div class="flex flex-wrap justify-center">
 						<div class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
 							<div class="relative">
-								<img alt="..." src="https://demos.creative-tim.com/notus-js/assets/img/team-2-800x800.jpg" class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px">
+
+								{% if user.getPhotoUser() %}
+									<img src="/images/{{ user.getPhotoUser() }}" alt="{{ user.getPhotoUser() }}" class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px">
+								{% else %}
+									<img src="/images/photoProfil.png" alt="Photo de profil" class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px">
+								{% endif %}
+
 							</div>
 						</div>
 					</div>
@@ -154,7 +164,7 @@
 						{{ user.getNomUser() }}
 						{{ user.getPrenomUser() }}
 					</h3>
-					<div class="text-sm leading-normal mt-0 mb-2 text-black-400 font-bold uppercase">
+					<div class="text-sm leading-normal mt-3 mb-5 text-black-400 font-bold uppercase">
 						<i class="fas fa-map-marker-alt mr-2 text-lg text-black-400"></i>
 						{{ user.getPseudoUser() }}
 					</div>
@@ -176,40 +186,38 @@
 				{{ post.getUser().getPseudoUser() }}
 			</span>
 		</p>
-		<!--faire une boucle, si la case image==nul alors on affiche rien sinon on affiche l'image associé-->
 
-		{% if post.getImagePost %}
-			<img class="5%" src="images/{{ post.getImagePost }}.jpg" class="card-img-top" alt="{{ post.getImagePost }}">
+		{% if post.getImagePost() %}
+			<img src="/images/{{ post.getImagePost() }}" class="card-img" alt="{{ post.getImagePost }}">
 		{% endif %}
-		<img class="5%" src="images/ballon.jpg" class="card-img-top" alt="ballon">
 
 
 		<p>
 			<span>{{ post.getDescriptionPost() }}</span>
 		</p>
-
-		<input type="checkbox" id="r5">
-		<label for="r5" class="react">
-			<i data-icon="💯"></i>
-		</label>
-
-		<input type="checkbox" id="r6">
-		<label for="r6" class="react">
-			<i data-icon="❤️"></i>
-		</label>
-
-		<input type="checkbox" id="r7">
-		<label for="r7" class="react">
-			<i data-icon="🐙"></i>
-		</label>
-
-		<input type="checkbox" id="r8">
-		<label for="r8" class="react">
-			<i data-icon="👍"></i>
-		</label>
-		<br>
-
-		<a href="#" tabindex="-1" class="btn btn-primary disabled ">Commenter</a>
+		<!--
+				<input type="checkbox" id="r5">
+				<label for="r5" class="react">
+					<i data-icon="💯"></i>
+				</label>
+		
+				<input type="checkbox" id="r6">
+				<label for="r6" class="react">
+					<i data-icon="❤️"></i>
+				</label>
+		
+				<input type="checkbox" id="r7">
+				<label for="r7" class="react">
+					<i data-icon="🐙"></i>
+				</label>
+		
+				<input type="checkbox" id="r8">
+				<label for="r8" class="react">
+					<i data-icon="👍"></i>
+				</label>
+				<br>
+		
+				<a href="#" tabindex="-1" class="btn btn-primary disabled ">Commenter</a>-->
 	</div>
 
 </div>{% endif %}{% endfor %}</main>{% endblock %}

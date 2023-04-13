@@ -13,6 +13,10 @@
 		.card-pseudo {
 			color: grey;
 		}
+		.card-img {
+			height: 300px;
+			width: auto;
+		}
 	</style>
 
 	<link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
@@ -36,7 +40,12 @@
 						<div class="flex flex-wrap justify-center">
 							<div class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
 								<div class="relative">
-									<img alt="..." src="https://demos.creative-tim.com/notus-js/assets/img/team-2-800x800.jpg" class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px">
+									{% if app.user.getPhotoUser() %}
+										<img src="images/{{ app.user.getPhotoUser() }}" alt="{{ app.user.getPhotoUser() }}" class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px">
+									{% else %}
+										<!--si l'utilisateur n'a pas de profil, on en affiche une par défaut-->
+										<img src="images/photoProfil.png" alt="Photo de profil" class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px">
+									{% endif %}
 								</div>
 							</div>
 						</div>
@@ -55,12 +64,38 @@
 							{{ app.user.getNomUser() }}
 							{{ app.user.getPrenomUser() }}
 						</h3>
-						<div class="text-sm leading-normal mt-0 mb-2 text-black-400 font-bold uppercase">
+						<div class="text-sm leading-normal mt-3 mb-5 text-black-400 font-bold uppercase">
 							<i class="fas fa-map-marker-alt mr-2 text-lg text-black-400"></i>
 							{{ app.user.getPseudoUser() }}
+
 						</div>
 					</div>
 
 				</section>
+				{#{% for post in liste_post %}
+									{% if post.getAffichage()==1 %}
+										<div class="card">
+											<div class="card-body">
+												<p>
+													<h5 class="card-title">
+														<span>{{ post.getTitrePost() }}</span>
+													</h5>
+				
+												</p>
+												<span class="card-pseudo">
+													{{ post.getUser().getPseudoUser() }}
+												</span>
+											</p>
+				
+											{% if post.getImagePost() %}
+												<img src="/images/{{ post.getImagePost() }}" class="card-img" alt="{{ post.getImagePost }}">
+											{% endif %}
+				
+				
+											<p>
+												<span>{{ post.getDescriptionPost() }}</span>
+											</p>
+										{% endif %}
+									{% endfor %}#}
 			</main>
 		{% endblock %}

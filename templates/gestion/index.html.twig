@@ -58,6 +58,10 @@
 		.buttona-masquer:hover {
 			background: #800000;
 		}
+		.card-img {
+			height: 300px;
+			width: auto;
+		}
 	</style>
 	<div class="container">
 
@@ -85,19 +89,14 @@
 						</h5>
 
 					</p>
-					<!--supp le if quand il y aura forcément un pseudo associé-->
 					<span class="card-pseudo">
-						{% if post.getUser() %}
-							{{ post.getUser().getPseudoUser() }}
-						{% endif %}
+						<a href="{{ path('app_utilisateurPost', { 'id': post.getUser().getId() }) }}">{{ post.getUser().getPseudoUser() }}</a>
 					</span>
 				</p>
-				<!--faire une boucle, si la case image==nul alors on affiche rien sinon on affiche l'image associé-->
 
-				{% if post.getImagePost %}
-					<img class="5%" src="images/{{ post.getImagePost }}.jpg" class="card-img-top" alt="{{ post.getImagePost() }}">
+				{% if post.getImagePost() %}
+					<img src="images/{{ post.getImagePost() }}" class="card-img" alt="{{ post.getImagePost() }}">
 				{% endif %}
-				<img class="5%" src="images/ballon.jpg" class="card-img-top" alt="ballon">
 
 
 				<p>
@@ -107,12 +106,14 @@
 		</div>
 	{% endfor %}
 
-</div>
 
-<span class='titre'>Liste des utilisateurs</span>
-{% for post in liste_user %}
-	<h5 class='listeUser'>
+	<span class='titre'>Liste des utilisateurs</span>
+	{% for post in liste_user %}
+		<h5 class='listeUser'>
 
-		<li>{{ post.getPseudoUser() }}</li>
-	</h5>
-{% endfor %}{% endblock %}
+			<li>
+				<a href="{{ path('app_utilisateurPost', { 'id': post.getId() }) }}">{{ post.getPseudoUser() }}</a>
+			</li>
+		</h5>
+	{% endfor %}
+</div>{% endblock %}

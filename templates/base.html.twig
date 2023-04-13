@@ -79,14 +79,13 @@
 						Mon compte
 					</a>
 				</li>
-				{#{% if app.user.getRoles()=='ROLE_ADMIN' %}#}
-				<!-- rajouter option qu'il faut qu'il soit admin-->
-				<li class="navli">
-					<a class="nava" href="{{path('app_gestion') }}">
-						Gestion
-					</a>
-				</li>
-				{#{% endif %}#}
+				{% if 'ROLE_ADMIN' in app.user.getRoles() %}
+					<li class="navli">
+						<a class="nava" href="{{path('app_gestion') }}">
+							Gestion
+						</a>
+					</li>
+				{% endif %}
 				<li class="navli">
 					<a class="nava" href="{{path('app_logout') }}">
 						Déconnexion</a>
