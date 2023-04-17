@@ -25,6 +25,7 @@ class GestionController extends AbstractController
             'liste_post' => $liste_post,
         ]);
     }
+    
     /**
      * @Route("/post/{id}/afficher", name="post_afficher")
      */

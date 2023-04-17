@@ -24,17 +24,6 @@ class PostFormType extends AbstractType
     {
 
         $builder
-            /*->add('tags', EntityType::class, array(
-                'class' => Tag::class,
-                'query_builder' => function (EntityRepository $er) use ($user) {
-                    return $er->createQueryBuilder('u')
-                        ->where('u.user = :user')
-                        ->setParameter('user', $user->getId());
-                },
-                'expanded' => true,
-                'multiple' => true
-            ))*/
-            //->add('pseudo_user', TextType::class)
             ->add('titre_post', TextType::class, [
                 'label' => false,
                 'attr' => ['placeholder' => 'Titre'],

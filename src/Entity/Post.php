@@ -29,29 +29,20 @@ class Post
     #[ORM\Column(type: 'boolean', options: ['default' => false])]
     private bool $affichage = false;
 
-    #[ORM\Column(type: 'boolean', options: ['default' => false])]
-    private bool $cent = false;
-
-    #[ORM\Column(type: 'boolean', options: ['default' => false])]
-    private bool $coeur = false;
-
-    #[ORM\Column(type: 'boolean', options: ['default' => false])]
-    private bool $pouce = false;
-
-    #[ORM\Column(type: 'boolean', options: ['default' => false])]
-    private bool $poulpe = false;
-
     #[ORM\ManyToOne(inversedBy: 'posts', targetEntity: User::class)]
     private $user;
 
     #[ORM\OneToMany(mappedBy: 'post', targetEntity: Commentaire::class)]
     private $commentaires;
 
+    #[ORM\OneToMany(mappedBy: 'id_post', targetEntity: Reaction::class)]
+    private Collection $reactions;
 
 
     public function __construct()
     {
         $this->commentaires = new ArrayCollection();
+        $this->reactions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -117,46 +108,6 @@ class Post
         $this->affichage = $affichage;
     }
 
-    public function getCoeur(): bool
-    {
-        return $this->coeur;
-    }
-
-    public function setCoeur(bool $coeur): void
-    {
-        $this->coeur = $coeur;
-    }
-
-    public function getPouce(): bool
-    {
-        return $this->pouce;
-    }
-
-    public function setPouce(bool $pouce): void
-    {
-        $this->cent = $pouce;
-    }
-
-    public function getPoulpe(): bool
-    {
-        return $this->poulpe;
-    }
-
-    public function setPoulpe(bool $poulpe): void
-    {
-        $this->cent = $poulpe;
-    }
-
-    public function getCent(): bool
-    {
-        return $this->cent;
-    }
-
-    public function setCent(bool $cent): void
-    {
-        $this->cent = $cent;
-    }
-
     /**
      * @return Collection|Commentaires[]
      */
@@ -190,6 +141,36 @@ class Post
             // set the owning side to null (unless already changed)
             if ($commentaire->getPost() === $this) {
                 $commentaire->setPost($this);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Reaction>
+     */
+    public function getReactions(): Collection
+    {
+        return $this->reactions;
+    }
+
+    public function addReaction(Reaction $reaction): self
+    {
+        if (!$this->reactions->contains($reaction)) {
+            $this->reactions->add($reaction);
+            $reaction->setIdPost($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReaction(Reaction $reaction): self
+    {
+        if ($this->reactions->removeElement($reaction)) {
+            // set the owning side to null (unless already changed)
+            if ($reaction->getIdPost() === $this) {
+                $reaction->setIdPost(null);
             }
         }
 

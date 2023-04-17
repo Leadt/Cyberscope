@@ -24,7 +24,6 @@ class ConnexionController extends AbstractController
         }
     }
 
-
     #[Route('/deconnexion', name: 'app_logout')]
     public function logout(): void
     {

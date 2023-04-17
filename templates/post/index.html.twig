@@ -170,29 +170,46 @@
 						<p>
 							<span>{{ post.getDescriptionPost() }}</span>
 						</p>
+
+						<input type="checkbox" id="r5">
+						<label for="r5" class="react">
+							<i data-icon="💯"></i>
+						</label>
+
+						<input type="checkbox" id="r6">
+						<label for="r6" class="react">
+							<i data-icon="❤️"></i>
+						</label>
+
+						<input type="checkbox" id="r7">
+						<label for="r7" class="react">
+							<i data-icon="🐙"></i>
+						</label>
+
+						<input type="checkbox" id="r8">
+						<label for="r8" class="react">
+							<i data-icon="👍"></i>
+						</label>
+						<br>
+
+					<!--<a href="#" tabindex="-1" class="btn btn-primary disabled ">Commenter</a>-->
+						{# <input type="checkbox" name="my_boolean" id="my_boolean_checkbox" value="1" {% if Reaction.cent %}checked{% endif %}>
 						
-												<input type="checkbox" id="r5">
-												<label for="r5" class="react">
-													<i data-icon="💯"></i>
-												</label>
-						
-												<input type="checkbox" id="r6">
-												<label for="r6" class="react">
-													<i data-icon="❤️"></i>
-												</label>
-						
-												<input type="checkbox" id="r7">
-												<label for="r7" class="react">
-													<i data-icon="🐙"></i>
-												</label>
-						
-												<input type="checkbox" id="r8">
-												<label for="r8" class="react">
-													<i data-icon="👍"></i>
-												</label>
-												<br>
-						
-												<!--<a href="#" tabindex="-1" class="btn btn-primary disabled ">Commenter</a>-->
+						<script>
+						document.getElementById('my_boolean_checkbox').addEventListener('change', function() {
+						    var xhr = new XMLHttpRequest();
+						    xhr.open('POST', '/my/update-boolean');
+						    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+						    xhr.onload = function() {
+						        if (xhr.status === 200) {
+						            console.log('The boolean has been updated');
+						        } else {
+						            console.log('There was an error updating the boolean');
+						        }
+						    };
+						    xhr.send('id={{ cent.id }}&value=' + this.checked);
+						});
+						</script> #}
 					</div>
 
 				</div>
