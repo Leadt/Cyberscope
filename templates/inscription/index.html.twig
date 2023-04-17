@@ -87,6 +87,7 @@
 
 <div class="main-block">
 	<h1>Inscription</h1>
+	{# Récupération du formulaire à partir de  registrationFormType #}
 	{{ form_start(registrationForm) }}
 
 	<hr>
@@ -130,8 +131,6 @@
 		<div class="col-11 form-label mt-1">{{ form_row(registrationForm.plainPassword) }}
 		</div>
 	</div>
-	<!--<label for="registration_form_photo_user" class="form-label ">Photo de profil</label>
-		<input class="form-control" type="file" id="registration_form_photo_user" name="registration_form[photo_user]" accept=".png,.jpeg,.jpg,.svg"/>-->
 
 	{{ form_row(registrationForm.photo_user) }}
 	<hr>

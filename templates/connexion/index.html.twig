@@ -96,10 +96,11 @@
 		<div class="alert alert-danger">Connexion impossible</div>
 	{% endif %}
 
+	{# Si l'utilisateur est connecté, cette page n'est pas accessible #}
 	{% if app.user %}
 
 		{% else %}
-
+			{# Sinon, on lui affiche la page de connexion, via laquelle il peut égalment s'inscrire #}
 			<div class="main-block">
 				<h1>Connexion</h1>
 				<form method="post">

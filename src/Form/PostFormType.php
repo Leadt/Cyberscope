@@ -22,7 +22,6 @@ class PostFormType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-
         $builder
             ->add('titre_post', TextType::class, [
                 'label' => false,

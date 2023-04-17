@@ -17,6 +17,7 @@ use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
 
 class RegistrationController extends AbstractController
 {
+    //Fonction associé à la création d'un formulaire
     #[Route('/inscription', name: 'app_register')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator, UsersAuthenticator $authenticator, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
@@ -25,7 +26,8 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // encode the plain password
+            // encodage du mot de passe
+            // Dans la bbd, le mot de passe ne sera pas écrit
             $user->setPassword(
                 $userPasswordHasher->hashPassword(
                     $user,
@@ -35,27 +37,23 @@ class RegistrationController extends AbstractController
             $photo_user = $form->get('photo_user')->getData();
             if ($photo_user) {
                 $originalFilename = pathinfo($photo_user->getClientOriginalName(), PATHINFO_FILENAME);
-                // this is needed to safely include the file name as part of the URL
                 $safeFilename = $slugger->slug($originalFilename);
                 $newFilename = $safeFilename . '-' . uniqid() . '.' . $photo_user->guessExtension();
 
-                // Move the file to the directory where brochures are stored
+                // Déplace le fichier dans le dossier images
                 try {
                     $photo_user->move(
                         $this->getParameter('images_directory'),
                         $newFilename
                     );
                 } catch (FileException $e) {
-                    // ... handle exception if something happens during file upload
+                    // ... gérer les exceptions ici
                 }
 
-                // updates the 'brochureFilename' property to store the PDF file name
-                // instead of its contents
                 $user->setPhotoUser($newFilename);
             }
             $entityManager->persist($user);
             $entityManager->flush();
-            // do anything else you need here, like send an email
 
             return $userAuthenticator->authenticateUser(
                 $user,

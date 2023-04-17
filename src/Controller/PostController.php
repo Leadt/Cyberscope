@@ -21,7 +21,7 @@ class PostController extends AbstractController
     #[Route('/', name: "app_homepage")]
     public function index(PostRepository $post): Response
     {
-        //récupère la liste des posts par ordre d'identifiant décroissant pour qu'ils soient affichés à partir du plus récent
+        //Récupère la liste des posts par ordre d'identifiant décroissant pour qu'ils soient affichés à partir du plus récent
         $liste = $post->findBy(array(), array('id' => 'DESC'));
 
         return $this->render('post/index.html.twig', [
@@ -30,6 +30,7 @@ class PostController extends AbstractController
         ]);
     }
 
+    //Fonction qui permet d'ajouter les données d'un formulaire à la bdd
     #[Route('/formPost', name: "app_formPost")]
     public function formPost(Request $request, EntityManagerInterface $entityManager, SecurityBundleSecurity $security, SluggerInterface $slugger): Response
     {

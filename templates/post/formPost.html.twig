@@ -111,13 +111,14 @@
 
 	<hr>
 	<div class="form">
-		<div class="texte">
+		<div
+			class="texte">
+			{# Récupération du formulaire à partir de  PostFormType #}
 			{{ form_row(Postform.titre_post) }}
 
 			{{ form_row(Postform.description_post) }}
 			<br>
 			Ajouter une illustration
-			<!--<input type="file" name="photo" id="photo" accept=".png,.jpeg,.jpg,.svg"/>-->
 			{{ form_row(Postform.image_post) }}</div>
 
 		<hr><div class="block">

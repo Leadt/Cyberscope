@@ -138,8 +138,9 @@
 				<div class="px-6">
 					<div class="flex flex-wrap justify-center">
 						<div class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
-							<div class="relative">
-
+							<div
+								class="relative">
+								{# si l'utilisateur n'a pas choisi de photo de profil lors de son inscription, on lui en donne une par défaut #}
 								{% if user.getPhotoUser() %}
 									<img src="/images/{{ user.getPhotoUser() }}" alt="{{ user.getPhotoUser() }}" class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px">
 								{% else %}
@@ -172,7 +173,7 @@
 			</div>
 		</div>
 	</div>
-</div></section>{% for post in liste_post %}
+</div></section>{# Affichage des posts de ce pseudo #}{% for post in liste_post %}
 {% if post.getAffichage()==1 %}
 	<div class="card">
 		<div class="card-body">
@@ -195,29 +196,29 @@
 		<p>
 			<span>{{ post.getDescriptionPost() }}</span>
 		</p>
-		<!--
-				<input type="checkbox" id="r5">
-				<label for="r5" class="react">
-					<i data-icon="💯"></i>
-				</label>
-		
-				<input type="checkbox" id="r6">
-				<label for="r6" class="react">
-					<i data-icon="❤️"></i>
-				</label>
-		
-				<input type="checkbox" id="r7">
-				<label for="r7" class="react">
-					<i data-icon="🐙"></i>
-				</label>
-		
-				<input type="checkbox" id="r8">
-				<label for="r8" class="react">
-					<i data-icon="👍"></i>
-				</label>
-				<br>
-		
-				<a href="#" tabindex="-1" class="btn btn-primary disabled ">Commenter</a>-->
+
+		{# <input type="checkbox" id="r5">
+												<label for="r5" class="react">
+													<i data-icon="💯"></i>
+												</label>
+										
+												<input type="checkbox" id="r6">
+												<label for="r6" class="react">
+													<i data-icon="❤️"></i>
+												</label>
+										
+												<input type="checkbox" id="r7">
+												<label for="r7" class="react">
+													<i data-icon="🐙"></i>
+												</label>
+										
+												<input type="checkbox" id="r8">
+												<label for="r8" class="react">
+													<i data-icon="👍"></i>
+												</label>
+												<br>
+										
+												<a href="#" tabindex="-1" class="btn btn-primary disabled ">Commenter</a> #}
 	</div>
 
 </div>{% endif %}{% endfor %}</main>{% endblock %}

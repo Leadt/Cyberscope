@@ -138,14 +138,14 @@
 
 
 	{% if app.user %}
-
+		{# Disponible que si l'utilisateur est connecté #}
 		<div class="container">
 
 			<div class="btn-block">
 				<button class="button-add" onclick="window.location.href = '{{ path('app_formPost') }}'">Nouveau post</button>
 			</div>
 
-
+			{# Affichage des post que l'admin a validé #}
 			{% for post in liste_post %}
 				{% if post.getAffichage()==1 %}
 					<div class="card">
@@ -156,8 +156,9 @@
 								</h5>
 
 							</p>
-							<span class="card-pseudo">
-
+							<span
+								class="card-pseudo">
+								{# Pseudo cliquable pour acceder à tous les posts de cet utilisateur #}
 								<a href="{{ path('app_utilisateurPost', { 'id': post.getUser().getId() }) }}">{{ post.getUser().getPseudoUser() }}</a>
 							</span>
 						</p>
@@ -170,59 +171,74 @@
 						<p>
 							<span>{{ post.getDescriptionPost() }}</span>
 						</p>
-
-						<input type="checkbox" id="r5">
-						<label for="r5" class="react">
-							<i data-icon="💯"></i>
-						</label>
-
-						<input type="checkbox" id="r6">
-						<label for="r6" class="react">
-							<i data-icon="❤️"></i>
-						</label>
-
-						<input type="checkbox" id="r7">
-						<label for="r7" class="react">
-							<i data-icon="🐙"></i>
-						</label>
-
-						<input type="checkbox" id="r8">
-						<label for="r8" class="react">
-							<i data-icon="👍"></i>
-						</label>
 						<br>
 
-					<!--<a href="#" tabindex="-1" class="btn btn-primary disabled ">Commenter</a>-->
-						{# <input type="checkbox" name="my_boolean" id="my_boolean_checkbox" value="1" {% if Reaction.cent %}checked{% endif %}>
-						
+						{% for reaction in post.getReactions() %}
+							{% if reaction.getIdUser() == app.user %}
+								<input type="checkbox" class="checkbox-reaction" data-post-id="{{ post.id }}" data-user-id="{{ app.user.id }}" data-reaction-type="cent" {% if reaction.isCent() %} checked {% endif %}>
+								<label class="react">
+									cent
+								</label>
+								<input type="checkbox" name="cent" id="cent_checkbox" value="1" {% if reaction.isCent() %} checked {% endif %}>
+								<label class="react">
+									<i data-icon="💯"></i>
+								</label>
+								<input type="checkbox" name="coeur" id="coeur_checkbox" value="1" {% if reaction.isCoeur() %} checked {% endif %}>
+								<label class="react">
+									<i data-icon="❤️"></i>
+								</label>
+								<input type="checkbox" name="poulpe" id="poulpe_checkbox" value="1" {% if reaction.isPoulpe() %} checked {% endif %}>
+								<label class="react">
+									<i data-icon="🐙"></i>
+								</label>
+								<input type="checkbox" name="pouce" id="pouce_checkbox" value="1" {% if reaction.isPouce() %} checked {% endif %}>
+								<label class="react">
+									<i data-icon="👍"></i>
+								</label>
+
+							{% endif %}
+						{% endfor %}
 						<script>
-						document.getElementById('my_boolean_checkbox').addEventListener('change', function() {
-						    var xhr = new XMLHttpRequest();
-						    xhr.open('POST', '/my/update-boolean');
-						    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-						    xhr.onload = function() {
-						        if (xhr.status === 200) {
-						            console.log('The boolean has been updated');
-						        } else {
-						            console.log('There was an error updating the boolean');
-						        }
-						    };
-						    xhr.send('id={{ cent.id }}&value=' + this.checked);
-						});
-						</script> #}
+							src = "https://code.jquery.com/jquery-3.6.0.min.js"
+dd('je suis dans le script');
+var_dump('je suis dans le script');
+$('.checkbox-reaction').click(function () {
+var postId = $(this).data('post-id');
+var userId = $(this).data('user-id');
+var reactionType = $(this).data('reaction-type');
+var isChecked = $(this).is(':checked');
+
+$.ajax({
+type: 'POST',
+url: '/update-reaction',
+data: {
+'postId': postId,
+'userId': userId,
+'reactionType': reactionType,
+'isChecked': isChecked
+},
+success: function (data) {
+console.log('Réaction mise à jour avec succès');
+},
+error: function (jqXHR, textStatus, errorThrown) {
+console.log('Erreur lors de la mise à jour de la réaction');
+}
+});
+});
+						</script>
+
 					</div>
 
 				</div>
 			{% endif %}
 		{% endfor %}
 	{% else %}
-
+		{# Si l'utilisateur n'est pas connecté, on lui demande de le faire #}
 		<div class="container deconect">
 			<p>
 				<a href="{{ path('app_login') }}">
 					CLIQUEZ ICI
 				</a>
-
 				pour accéder aux contenus</p>
 		</div>
 	{% endif %}

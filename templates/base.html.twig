@@ -65,20 +65,22 @@
 
 		{% endblock %}
 
-
+		{# Initalisation de la navbar #}
 		<ul class="nav">
 			<li class="navli">
 				<a class="nava" href="{{path('app_homepage') }}">
 					CyberCom
 				</a>
 			</li>
-
+			{# Si l'utilisateur est connecté ou non et administrateur ou non, il n'a pas accès aux mêmes pages #}
+			{# Que si l'utilisateur est connecté #}
 			{% if app.user %}
 				<li class="navli">
 					<a class="nava" href="{{path('app_utilisateur') }}">
 						Mon compte
 					</a>
 				</li>
+				{# Que si l'utilisateur à le rôle admin #}
 				{% if 'ROLE_ADMIN' in app.user.getRoles() %}
 					<li class="navli">
 						<a class="nava" href="{{path('app_gestion') }}">
@@ -91,7 +93,9 @@
 						Déconnexion</a>
 				</li>
 
+				{# Que si l'utilisateur est déconnecté #}
 			{% else %}
+
 				<li class="navli">
 					<a class="nava" href="{{path('app_login') }}">
 						Connexion</a>
@@ -99,7 +103,7 @@
 			{% endif %}
 		</ul>
 
-
+		{# Footer disponible sur toutes les pages #}
 		{% block body %}{% endblock %}<!-- Footer --><div class="container mt-5">
 			<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
 				<div class="col-md-4 d-flex align-items-center">

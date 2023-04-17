@@ -67,7 +67,7 @@
 
 		<span class='titre'>Choix des posts à afficher</span>
 
-
+		{# Affichage de tous les posts de la base de donnée, avec possibilité de masquer ou d'afficher les posts aux profils non administrateurs #}
 		{% for post in liste_post %}
 			<div class="card">
 				{% if post.getAffichage()==0 %}
@@ -106,7 +106,7 @@
 		</div>
 	{% endfor %}
 
-
+	{# Affichage de tous les profils de la base de données, lien cliquable pour accéder aux page de profils #}
 	<span class='titre'>Liste des utilisateurs</span>
 	{% for post in liste_user %}
 		<h5 class='listeUser'>

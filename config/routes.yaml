@@ -4,6 +4,7 @@ controllers:
     namespace: App\Controller
   type: attribute
 
-my_update_boolean:
-  path: /my/update-boolean
-  controller: App\Controller\ReactionController::updateBoolean
+update_reaction:
+  path: /update-reaction
+  methods: [POST]
+  controller: App\Controller\ReactionController::updateReaction
