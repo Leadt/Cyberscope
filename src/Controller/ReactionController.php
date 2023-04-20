@@ -65,4 +65,15 @@ class ReactionController extends AbstractController
 
         return new Response('OK', 200);
     }
+
+    //Permet de changer la valeur du boolean de la réaction
+    #[Route('/post/{id}/reaction', name: 'post_reaction')]
+    public function reactionPost(Post $post, Reaction $reaction, ManagerRegistry $managerRegistry): Response
+    {
+        $em = $managerRegistry->getManager();
+        $reaction->setCoeur(!$reaction->isCoeur());
+        $em->persist($reaction);
+        $em->flush();
+        return $this->redirectToRoute('app_homepage');
+    }
 }

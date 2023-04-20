@@ -172,10 +172,27 @@
 							<span>{{ post.getDescriptionPost() }}</span>
 						</p>
 						<br>
-
+{# 
 						{% for reaction in post.getReactions() %}
+						dans le for
 							{% if reaction.getIdUser() == app.user %}
-								<input type="checkbox" class="checkbox-reaction" data-post-id="{{ post.id }}" data-user-id="{{ app.user.id }}" data-reaction-type="cent" {% if reaction.isCent() %} checked {% endif %}>
+							dans le if
+							{% if reaction.isCoeur()==0 %}
+							dans le if
+					<div class="button-block">
+						<button class="button-valider" onclick="window.location.href = '{{ path('post_reaction', {'id': post.id}) }}'">
+							reaction ok</button>
+					</div>
+				{% else %}
+				dans le else
+					<div class="button-block">
+						<button class="button-masquer" onclick="window.location.href = '{{ path('post_afficher', {'id': post.id}) }}'">
+							Masquer le post</button>
+					</div>
+				{% endif %}
+				{% endif %}
+				{% endfor %} #}
+								{# <input type="checkbox" class="checkbox-reaction" data-post-id="{{ post.id }}" data-user-id="{{ app.user.id }}" data-reaction-type="cent" {% if reaction.isCent() %} checked {% endif %}>
 								<label class="react">
 									cent
 								</label>
@@ -225,13 +242,14 @@ console.log('Erreur lors de la mise à jour de la réaction');
 }
 });
 });
-						</script>
+						</script> #}
 
 					</div>
 
 				</div>
 			{% endif %}
 		{% endfor %}
+
 	{% else %}
 		{# Si l'utilisateur n'est pas connecté, on lui demande de le faire #}
 		<div class="container deconect">
