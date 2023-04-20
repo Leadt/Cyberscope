@@ -2,11 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\Post;
 use App\Entity\User;
 use App\Repository\PostRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Role\Role;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,10 +17,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class UserController extends AbstractController
 {
     #[Route('/utilisateur', name: 'app_utilisateur')]
-    public function index(): Response
+    public function index(ManagerRegistry $managerRegistry, Security $security): Response
     {
+        $entityManager = $managerRegistry->getManager();
+        //$user = $entityManager->getRepository(User::class)->find($id);
+        // $nb_post = $user->getPost()->count();
+
         return $this->render('utilisateur/index.html.twig', [
             'controller_name' => 'PostController',
+            //'nb_post' => $nb_post,
         ]);
     }
 
@@ -41,10 +48,12 @@ class UserController extends AbstractController
         $user = $entityManager->getRepository(User::class)->find($id);
 
         $liste_post = $post->findBy(['user' => $user], ['id' => 'DESC']);
+        $nb_post = $user->getPost()->count();
 
         return $this->render('utilisateur/compteExterne.html.twig', [
             'controller_name' => 'PostController',
             'liste_post' => $liste_post,
+            'nb_post' => $nb_post,
             'user' => $user,
         ]);
     }

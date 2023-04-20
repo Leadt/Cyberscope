@@ -76,7 +76,7 @@
 			{# Que si l'utilisateur est connecté #}
 			{% if app.user %}
 				<li class="navli">
-					<a class="nava" href="{{path('app_utilisateur') }}">
+					<a class="nava" href="{{ path('app_utilisateurPost', { 'id': app.user.getId() }) }}">
 						Mon compte
 					</a>
 				</li>

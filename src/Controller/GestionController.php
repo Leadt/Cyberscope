@@ -29,7 +29,6 @@ class GestionController extends AbstractController
     }
 
     //Permet de changer la valeur du boolean de l'affichage
-
     #[Route('/post/{id}/afficher', name: 'post_afficher')]
     public function AffichagePost(Post $post, ManagerRegistry $managerRegistry): Response
     {
