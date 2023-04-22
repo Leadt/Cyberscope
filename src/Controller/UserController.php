@@ -16,19 +16,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class UserController extends AbstractController
 {
-    #[Route('/utilisateur', name: 'app_utilisateur')]
-    public function index(ManagerRegistry $managerRegistry, Security $security): Response
-    {
-        $entityManager = $managerRegistry->getManager();
-        //$user = $entityManager->getRepository(User::class)->find($id);
-        // $nb_post = $user->getPost()->count();
-
-        return $this->render('utilisateur/index.html.twig', [
-            'controller_name' => 'PostController',
-            //'nb_post' => $nb_post,
-        ]);
-    }
-
     //Permet de rendre un utilisateur administrateur
     #[Route('/admin/utilisateur/{id}/ajoutadmin', name: 'ajout_admin')]
     public function ajoutAdmin(User $user, EntityManagerInterface $entityManager): Response

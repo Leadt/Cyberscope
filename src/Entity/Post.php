@@ -32,16 +32,12 @@ class Post
     #[ORM\ManyToOne(inversedBy: 'posts', targetEntity: User::class)]
     private $user;
 
-    #[ORM\OneToMany(mappedBy: 'post', targetEntity: Commentaire::class)]
-    private $commentaires;
-
     #[ORM\OneToMany(mappedBy: 'id_post', targetEntity: Reaction::class)]
     private Collection $reactions;
 
 
     public function __construct()
     {
-        $this->commentaires = new ArrayCollection();
         $this->reactions = new ArrayCollection();
     }
 
@@ -106,45 +102,6 @@ class Post
     public function setAffichage(bool $affichage): void
     {
         $this->affichage = $affichage;
-    }
-
-    /**
-     * @return Collection|Commentaires[]
-     */
-
-
-    public function getCom(): Collection
-    {
-        return $this->commentaires;
-    }
-
-    public function setCom(string $com): self
-    {
-        $this->commentaires = $com;
-
-        return $this;
-    }
-
-    public function addCommentaire(Commentaire $commentaire): self
-    {
-        if (!$this->commentaires->contains($commentaire)) {
-            $this->commentaires[] = $commentaire;
-            $commentaire->setPost($this);
-        }
-        return $this;
-    }
-
-    public function removeCommentaire(Commentaire $commentaire): self
-    {
-        if ($this->commentaires->contains($commentaire)) {
-            $this->commentaires->removeElement($commentaire);
-            // set the owning side to null (unless already changed)
-            if ($commentaire->getPost() === $this) {
-                $commentaire->setPost($this);
-            }
-        }
-
-        return $this;
     }
 
     /**

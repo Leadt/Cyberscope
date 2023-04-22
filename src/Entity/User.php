@@ -40,9 +40,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private array $roles = [];
 
-    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Commentaire::class)]
-    private Collection $commentaires;
-
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Post::class)]
     private Collection $posts;
 
@@ -51,7 +48,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function __construct()
     {
-        $this->commentaires = new ArrayCollection();
         $this->posts = new ArrayCollection();
         $this->reactions = new ArrayCollection();
     }
@@ -159,47 +155,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
-    }
-    /**
-     * @return Collection|Comment[]
-     */
-
-
-    public function getCom(): Collection
-    {
-        return $this->commentaires;
-    }
-
-    public function setCom(string $com): self
-    {
-        $this->commentaires = $com;
-
-        return $this;
-    }
-
-    public function addCommentaire(Commentaire $commentaire): self
-    {
-        if (!$this->commentaires->contains($commentaire)) {
-            $this->commentaires[] = $commentaire;
-            $commentaire->setUser($this);
-        }
-        return $this;
-
-        return $this;
-    }
-
-    public function removeCommentaire(Commentaire $commentaire): self
-    {
-        if ($this->commentaires->contains($commentaire)) {
-            $this->commentaires->removeElement($commentaire);
-            // set the owning side to null (unless already changed)
-            if ($commentaire->getUser() === $this) {
-                $commentaire->setUser($this);
-                //$commentaire->setPost(null);
-            }
-        }
-
-        return $this;
     }
 
     /**
