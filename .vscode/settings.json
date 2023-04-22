@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "undefined/subscriptions/2ca02066-41a8-4019-afcf-7af6d3ab2bef/resourceGroups/appsvc_windows_centralus/providers/Microsoft.Web/sites/CyberScope",
+  "appService.deploySubpath": "."
+}
