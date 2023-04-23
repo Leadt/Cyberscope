@@ -5,8 +5,6 @@ namespace App\Entity;
 use App\Entity\User;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\PostRepository;
-use Doctrine\Common\Collections\Collection;
-use Doctrine\Common\Collections\ArrayCollection;
 
 
 #[ORM\Entity(repositoryClass: PostRepository::class)]
@@ -32,13 +30,8 @@ class Post
     #[ORM\ManyToOne(inversedBy: 'posts', targetEntity: User::class)]
     private $user;
 
-    #[ORM\OneToMany(mappedBy: 'id_post', targetEntity: Reaction::class)]
-    private Collection $reactions;
-
-
     public function __construct()
     {
-        $this->reactions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -102,35 +95,5 @@ class Post
     public function setAffichage(bool $affichage): void
     {
         $this->affichage = $affichage;
-    }
-
-    /**
-     * @return Collection<int, Reaction>
-     */
-    public function getReactions(): Collection
-    {
-        return $this->reactions;
-    }
-
-    public function addReaction(Reaction $reaction): self
-    {
-        if (!$this->reactions->contains($reaction)) {
-            $this->reactions->add($reaction);
-            $reaction->setIdPost($this);
-        }
-
-        return $this;
-    }
-
-    public function removeReaction(Reaction $reaction): self
-    {
-        if ($this->reactions->removeElement($reaction)) {
-            // set the owning side to null (unless already changed)
-            if ($reaction->getIdPost() === $this) {
-                $reaction->setIdPost(null);
-            }
-        }
-
-        return $this;
     }
 }

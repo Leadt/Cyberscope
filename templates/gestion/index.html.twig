@@ -23,9 +23,6 @@
 			margin: 3%;
 			color: grey;
 		}
-		.card-pseudo {
-			color: grey;
-		}
 		.button-block {
 			margin-top: 10px;
 			text-align: center;
@@ -55,12 +52,20 @@
 			font-weight: 600;
 			color: #fff;
 		}
-		.buttona-masquer:hover {
+		.button-masquer:hover {
 			background: #800000;
 		}
 		.card-img {
 			height: 300px;
 			width: auto;
+		}
+		.card-title {
+			font-size: 20px;
+			font-weight: 600;
+			color: black;
+		}
+		.card-description {
+			color: black;
 		}
 	</style>
 	<div class="container">
@@ -89,7 +94,7 @@
 						</h5>
 
 					</p>
-					<span class="card-pseudo">
+					<span>
 						<a href="{{ path('app_utilisateurPost', { 'id': post.getUser().getId() }) }}">{{ post.getUser().getPseudoUser() }}</a>
 					</span>
 				</p>
@@ -100,7 +105,7 @@
 
 
 				<p>
-					<span>{{ post.getDescriptionPost() }}</span>
+					<span class="card-description">{{ post.getDescriptionPost() }}</span>
 				</p>
 			</div>
 		</div>

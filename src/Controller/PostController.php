@@ -3,8 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Post;
-use App\Entity\User;
-use App\Entity\Reaction;
 use App\Form\PostFormType;
 use App\Repository\PostRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -68,23 +66,6 @@ class PostController extends AbstractController
 
             //ajout des infos à la bdd
             $entityManager->persist($post);
-            $entityManager->flush();
-
-            // Instancier une nouvelle entité Reaction pour chaque utilisateur existant et initialiser les boolean des réactions à false
-            $users = $entityManager->getRepository(User::class)->findAll();
-            foreach ($users as $user) {
-                $reaction = new Reaction();
-                $reaction->setIdPost($post); // associer la nouvelle entité Reaction au post correspondant
-                $reaction->setIdUser($user); // associer la nouvelle entité Reaction à l'utilisateur correspondant
-                //Chaque reaction est initialisé à false
-                $reaction->setCent(false);
-                $reaction->setCoeur(false);
-                $reaction->setPouce(false);
-                $reaction->setPoulpe(false);
-
-                // Enregistrer la nouvelle entité Reaction en base de données
-                $entityManager->persist($reaction);
-            }
             $entityManager->flush();
 
             //redirection sur la page du fil d'actualité une fois que la bdd est mise à jour

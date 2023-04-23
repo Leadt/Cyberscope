@@ -2,13 +2,10 @@
 
 namespace App\Controller;
 
-use App\Entity\Post;
 use App\Entity\User;
 use App\Repository\PostRepository;
-use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
-use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Role\Role;
 use Symfony\Component\Routing\Annotation\Route;
@@ -37,7 +34,7 @@ class UserController extends AbstractController
         $liste_post = $post->findBy(['user' => $user], ['id' => 'DESC']);
         $nb_post = $user->getPost()->count();
 
-        return $this->render('utilisateur/compteExterne.html.twig', [
+        return $this->render('utilisateur/profil.html.twig', [
             'controller_name' => 'PostController',
             'liste_post' => $liste_post,
             'nb_post' => $nb_post,
